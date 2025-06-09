@@ -8,20 +8,20 @@ class ShowPagesController extends Controller
 {
 
     // ADMIN LOGIN PAGE
-    public function adminLoginPAGE()
+    public function loginPAGE()
     {
-        return view('admin/login');
+        return view('login');
     }
 
     // ADMIN HOME PAGE
-    public function adminHomePAGE()
+    public function homePAGE()
     {     
         $apps = App::listaApps();
-        return view('admin/homepage', compact('apps'));
+        return view('homepage', compact('apps'));
     }
 
-    public function adminAcessosPAGE()
+    public function acessosPAGE()
     {
-        return view('admin.acessos');
+        return view('acessos');
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([EstaLogado::class])->group(function() {
     // SHOW PAGES
-    Route::get('admin/login', [ShowPagesController::class, 'adminLoginPAGE'])->name('login');
+    Route::get('login', [ShowPagesController::class, 'loginPAGE'])->name('login');
 
     // LOGIN
     Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
@@ -18,8 +18,8 @@ Route::middleware([EstaLogado::class])->group(function() {
 
 Route::middleware([NaoEstaLogado::class])->group(function() {
     // SHOW PAGES
-    Route::get('admin/homepage', [ShowPagesController::class, 'adminHomePAGE'])->name('homepage');
-    Route::get('/admin/acessos', [ShowPagesController::class, 'adminAcessosPAGE'])->name('acessos');
+    Route::get('homepage', [ShowPagesController::class, 'homePAGE'])->name('homepage');
+    Route::get('/acessos', [ShowPagesController::class, 'acessosPAGE'])->name('acessos');
 
     // EXECUTES
     Route::post('/createApp', [AppController::class, 'createApp'])->name('createApp');

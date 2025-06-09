@@ -3,24 +3,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-    @include('admin.layout.head')
+    @include('layout.head')
 
 <body>
     <main class="principal">    
 
         @if (Request::path() != 'admin/login')
-            @include('admin.layout.menu')
+            @include('layout.menu')
         @endif
 
         <section class="centro">
 
-            @include('admin.layout.cabecalho')
+            @include('layout.cabecalho')
             
             <article class="container-conteudo">
                 @yield('content')
             </article>
 
-            @include('admin.layout.rodape')
+            @include('layout.rodape')
 
         </section>
 

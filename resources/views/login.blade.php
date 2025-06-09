@@ -1,5 +1,5 @@
 
-@extends('admin.layout.login-layout')
+@extends('layout.login-layout')
 @section('formulario')
 <form method="post" action="/auth" id="loginForm">
     @csrf
@@ -33,7 +33,7 @@
         <p class="show-alert login">{{ session('loginError') }}</p>
     @endsession
 
-    @include('admin.layout.rodape')
+    @include('layout.rodape')
 
 </form>
 @endsection

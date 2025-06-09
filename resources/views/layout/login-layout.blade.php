@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-@include('admin.layout.head')
+@include('layout.head')
 
 <body>
     <main class="login-principal">
