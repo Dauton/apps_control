@@ -1,0 +1,78 @@
+.cabecalho {
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #aaa;
+    overflow: hidden;
+}
+.cabecalho .welcome {
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background: #cdcdcd;
+    color: #404040;
+}
+.cabecalho .active-user-area {
+    width: 220px;
+    height: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-left: 1px solid #aaa;
+    background: var(--verde-secondary);
+    cursor: pointer;
+    color: #fff;
+}
+.cabecalho .active-user-area i:first-child {
+    font-size: 30px;
+}
+.cabecalho .active-user-area p {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.cabecalho .active-user-area i:last-child {
+    font-size: 10px;    
+}
+
+.cabecalho .options-user-area {
+    width: 220px;
+    background: #fff;
+    border: 1px solid #aaa;
+    border-top: 0;
+    position: absolute;
+    display: none;
+    overflow: hidden;
+}
+.cabecalho .options-user-area ul {
+    list-style: none;
+}
+.cabecalho .options-user-area ul li a {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #404040;
+    font-size: 13px;
+}
+.cabecalho .options-user-area ul li a .fa-angle-right {
+    margin-left: auto;
+    font-size: 9px;
+}
+
+.cabecalho .options-user-area ul li a:hover {
+    background: #f1f1f1;
+}

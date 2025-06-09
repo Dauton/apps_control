@@ -1,0 +1,46 @@
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+form label {
+    width: 49%;
+    margin: 0 0 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form label div {
+    width: 100%;
+}
+
+form label input,
+form label select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+form label input:focus,
+form label select:focus {
+    outline-color: var(--azul-principal);
+}
+
+form small {
+    color: #f00;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+#input-error {
+    font-size: 13px;
+    color: #f00;
+    margin-bottom: -5px;
+}

@@ -1,0 +1,32 @@
+table {
+    text-align: center !important;
+}
+table thead tr {
+    background: linear-gradient(to right top, var(--verde-secondary), var(--verde-principal));
+    color: #fff;
+    text-align: center !important;
+}
+
+table tbody tr:nth-child(even) {
+    background: #f1f1f1 !important;
+}
+
+table thead tr td {
+    text-align: center !important;
+}
+
+table tbody tr td {
+    font-size: 13px;
+    text-align: center !important;
+}
+
+table tbody tr:hover {
+    background: #dddddd !important;
+}
+
+.dt-length,
+.dt-search,
+.dt-input,
+.dt-info {
+    font-size: 13px !important;
+}

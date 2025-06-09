@@ -1,0 +1,30 @@
+.show-alert {
+    padding: 8px 15px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    z-index: 999;
+}
+
+.error {
+    background: #f00;
+}
+
+.success {
+    background: #4fb44f;
+}
+
+.info {
+    background: #73c0d8;
+}
+.login {
+    width: 100%;
+    margin: 0 auto;
+    position:static;
+    transform: none;
+    background: #ff7979;
+    font-size: 12px;
+}

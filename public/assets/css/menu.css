@@ -1,0 +1,37 @@
+.menu {
+    width: 230px;
+    height: 100%;
+    padding: 10px;
+    background: linear-gradient( to top right, var(--azul-principal), var(--azul-secondary));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu img {
+    width: 80px;
+    margin: 20px;
+}
+
+.menu ul {
+    width: 100%;
+    list-style: none;
+}
+.menu ul li {
+    margin: 10px 0 ;
+}
+.menu ul li a {
+    display: block;
+    padding: 10px;
+    border-radius: 3px;
+    color: #fff;
+    text-decoration: none;
+}
+.menu ul li a:hover {
+    background: var(--azul-principal);
+}
+.menu ul li a i {
+    width: 20px;
+    text-align: center;
+    margin: 0 10px 0 0;
+}
