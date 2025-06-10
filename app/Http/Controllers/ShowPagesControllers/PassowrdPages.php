@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\Operations;
 use App\Models\User;
 
-class PassowrdController extends Controller
+class PassowrdPages extends Controller
 {
     public function editPasswordPAGE($id)
     {

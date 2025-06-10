@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function(Blueprint $table) {
+        Schema::create('servers', function(Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->nullable();
-            $table->string('username', 150)->nullable();
-            $table->string('password', 256)->nullable();
-            $table->datetime('last_login')->nullable();
-            $table->string('created_by', 150)->nullable();
+            $table->string('name_server', 150);
+            $table->string('ip_server', 45);
+            $table->string('php_version_server', 45)->nullable();
+            $table->string('laravel_version_server', 45)->nullable();
+            $table->string('created_by', 150);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('servers');
     }
 };

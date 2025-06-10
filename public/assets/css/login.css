@@ -22,13 +22,18 @@
     background: #fff;
 }
 
+#loginForm img {
+    width: 70px;
+    margin: 0 0 20px 0;
+}
+
 #loginForm .inpsel-container {
     width: 100% !important;
 }
 
-#loginForm img {
-    width: 70px;
-    margin: 0 0 20px 0;
+#loginForm .inpsel-container div i {
+    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
+    color: #f1f1f1;
 }
 
 .login-rodape {

@@ -39,9 +39,6 @@
 .menu .menu-date {
     width: 100%;
     margin-top: auto;
-    padding: 5px;
-    border-radius: 3px;
-    background: var(--verde-secondary);
     font-size: 13px;
     text-align: center;
     color: #fff;

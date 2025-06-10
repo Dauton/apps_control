@@ -1,4 +1,5 @@
 table {
+    margin: 10px 0 !important;
     text-align: center !important;
 }
 table thead tr {
@@ -13,11 +14,12 @@ table tbody tr:nth-child(even) {
 
 table thead tr td {
     text-align: center !important;
+    font-size: 14px;
 }
 
 table tbody tr td {
-    font-size: 13px;
-    padding: 15px !important;
+    font-size: 12px;
+    padding: 12px !important;
     text-align: center !important;
 }
 
@@ -25,9 +27,47 @@ table tbody tr:hover {
     background: #dddddd !important;
 }
 
+table i {
+    font-size: 25px;
+    color: var(--azul-secondary);
+}
+table i:hover {
+    color: var(--azul-principal);
+}
+
 .dt-length,
 .dt-search,
-.dt-input,
-.dt-info {
+.dt-info,
+.dt-buttons,
+.dt-paging {
+    width: 50%;
     font-size: 13px !important;
+}
+
+.dt-input {
+    font-size: 13px !important;
+}
+
+.dt-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dt-search,
+.dt-paging {
+    display: flex;
+    justify-content: right;
+}
+
+.buttons-excel {
+    background: #217346;
+}
+
+.buttons-excel:hover {
+    background: #164d2f;
+}
+.buttons-excel span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

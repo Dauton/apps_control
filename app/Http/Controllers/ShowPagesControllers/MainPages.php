@@ -4,7 +4,7 @@ namespace App\Http\Controllers\ShowPagesControllers;
 use App\Http\Controllers\Controller;
 use App\Models\App;
 
-class MainPagesController extends Controller
+class MainPages extends Controller
 {
 
     // LOGIN PAGE
@@ -22,8 +22,9 @@ class MainPagesController extends Controller
 
     //
     public function registrationsPAGE()
-    {
-        return view('registrations');
+    {   
+        $lastApp = App::lastApp();
+        return view('registrations', compact('lastApp'));
     }
 
     // ADMIN PAGE

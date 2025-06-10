@@ -3,8 +3,20 @@ $(document).ready(function () {
     // BIBLIOTECA DATATABLES
     $('table').DataTable({
         language: {
-            url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json"
-        }
+            url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+        },
+
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar <img src="/assets/img/logo-excel.png" alt="Excel" style="height:15px;" >',
+                title: 'gerenciador_ferramentas',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            }
+        ]
     });
     
     
@@ -42,5 +54,12 @@ $(document).ready(function () {
             $(".active-user-area .fa-caret-down").css({"transform": "rotate(0deg)"});
         }
     );
+
+    $('#minimize-form').click(function() {
+        $('.conteudo form').toggle();
+    });
+    $('#minimize-table').click(function() {
+        $('.conteudo #DataTables_Table_0_wrapper').toggle();
+    });
 
 });

@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('apps', function(Blueprint $table) {
             $table->id();
-            $table->string('site_app', 100);
+            $table->string('site_app', 45);
             $table->string('name_app', 256);
-            $table->string('server_app', 100);
+            $table->string('server_app', 45);
             $table->string('port_app')->nullable();
             $table->string('server_db_app');
             $table->string('name_db_app')->nullable();
             $table->string('php_version_app', 45);
             $table->string('larael_version_app', 45);
-            $table->string('url_intranet');
-            $table->string('author_app');
-            $table->string('created_by', 100)->nullable();
+            $table->string('url_intranet', 256);
+            $table->string('author_app', 150);
+            $table->string('created_by', 150)->nullable();
             $table->timestamps();
         });
     }

@@ -6,9 +6,9 @@
     gap: 10px;
 }
 
-.buttons-container button {
+button {
     min-width: 80px;
-    padding: 5px;
+    padding: 5px 10px;
     border: none;
     background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
     border: 1px solid var(--azul-principal);
@@ -18,16 +18,16 @@
     border-radius: 2px;
 }
 
-.buttons-container button:hover {
+button:hover {
     background: var(--azul-principal);
 }
 
-.buttons-container #btn-cancelar {
+#btn-cancelar {
     background: transparent;
     color: #404040;
 }
 
-.buttons-container #btn-cancelar:hover {
+#btn-cancelar:hover {
     background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
     color: #fff;
 }

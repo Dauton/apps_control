@@ -17,4 +17,11 @@ class Operations
 
         return $value;
     }
+
+    public static function ifNull($value, $final_value)
+    {
+        if(empty($value)) {
+            $value = $final_value;
+        }
+    }
 }

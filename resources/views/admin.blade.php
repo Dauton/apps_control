@@ -1,93 +1,97 @@
 @extends('layout.main-layout')
 @section('content')
 
-    <section class="conteudo">
+<section class="conteudo">
 
+    <div class="conteudo-cabecalho">
         <h2>Cadastrar usuário</h2>
+        <i class="fa-solid fa-minus" id="minimize-form"></i>
+    </div>
 
-        <form method="post" action="{{ 'cadastraProduto' }}">
-            <label for="descricao_produto">Descrição da ferramenta<small> *</small>
-                <div>
-                    <input type="text" name="descricao_produto" id="descricao_produto" placeholder="Descriçao do produto">
-                </div>
-                @error('email')
-                    <p id="input-error">{{ $message }}</p>
-                @enderror
-            </label>
+    <form method="post" action="{{ 'cadastraProduto' }}">
+        @csrf
 
-            <label for="marca_produto">Marca<small> *</small>
-                <div>
-                    <input type="text" name="marca_produto" id="marca_produto" placeholder="Marca do produto">
-                </div>
-                @error('email')
-                    <p id="input-error">{{ $message }}</p>
-                @enderror
-            </label>
-            
-            <label for="modelo_produto">Produto<small> *</small>
-                <div>
-                    <input type="text" name="modelo_produto" id="modelo_produto" placeholder="Modelo do produto">
-                </div>
-                @error('email')
-                    <p id="input-error">{{ $message }}</p>
-                @enderror
-            </label>
-
-            <label for="categoria_produto">Categoria<small> *</small>
-                <div>
-                    <select name="categoria_produto" id="categoria_produto">
-                        <option value="">Categoria do produto</option>
-                            <option value=""></option>
-                    </select>
-                </div>
-                @error('email')
-                    <p id="input-error">{{ $message }}</p>
-                @enderror
-            </label>
-            
-            <label for="preco_produto">Preço<small> *</small>
-                <div>
-                    <input type="text" name="preco_produto" id="preco_produto" placeholder="Preço do produto">
-                </div>
-                @error('email')
-                    <p id="input-error">{{ $message }}</p>
-                @enderror
-            </label>
-
-            <div class="buttons-container">
-                <button type="submit">Cadastrar</button>
-                <button type="button" id="btn-cancelar">Cancelar</button>
+        <div class="inpsel-container">
+            <label for="name">Nome</label>
+            <div>
+                <i class="fa-solid fa-address-card"></i>
+                <input type="text" name="name" id="name" placeholder="Nome completo" value="{{ old('name') }}">
             </div>
+            @error('name')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-        </form>
-    </section>
+        <div class="inpsel-container">
+            <label for="username">Usuário</label>
+            <div>
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" id="username" placeholder="Usuário de acesso" value="{{ old('username') }}">
+            </div>
+            @error('username')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-    <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
+        <div class="inpsel-container">
+            <label for="password">Senha</label>
+            <div>
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Senha de acesso" autocomplete="new-password" value="{{ old('password') }}">
+            </div>
+            @error('password')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-    <section class="conteudo">
+        <div class="inpsel-container">
+            <label for="password-repeat">Repita a senha</label>
+            <div>
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password-repeat" id="password-repeat" placeholder="Repita a senha de acesso" autocomplete="new-password" value="{{ old('password-repeat') }}">
+            </div>
+            @error('password-repeat')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
 
+        <div class="buttons-container">
+            <button type="submit">Cadastrar</button>
+            <button type="button" id="btn-cancelar">Cancelar</button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<section class="conteudo">
+
+    <div class="conteudo-cabecalho">
         <h2>Usuários cadastrados</h2>
+        <i class="fa-solid fa-minus" id="minimize-table"></i>
+    </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <td>Descriçao</td>
-                    <td>Marca</td>
-                    <td>Modelo</td>
-                    <td>Categoria</td>
-                    <td>Preço</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    
+    <table>
+        <thead>
+            <tr>
+                <td>Descriçao</td>
+                <td>Marca</td>
+                <td>Modelo</td>
+                <td>Categoria</td>
+                <td>Preço</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
 @endsection
