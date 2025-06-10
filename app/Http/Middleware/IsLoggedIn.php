@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class EstaLogado
+class IsLoggedIn
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class EstaLogado
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(session('usuario.nome')) {
-            return redirect(route('admin-homepage'))->with('alertInfo', 'Você já esta autenticado.');
+        if(session('user.name')) {
+            return redirect()->route('homepage')->with('alertInfo', 'Você já esta autenticado.');
         }
 
         return $next($request);

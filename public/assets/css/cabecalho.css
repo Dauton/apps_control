@@ -31,7 +31,7 @@
     justify-content: space-between;
     gap: 10px;
     border-left: 1px solid #aaa;
-    background: var(--verde-secondary);
+    background: linear-gradient(to right top, var(--verde-secondary), var(--verde-principal));
     cursor: pointer;
     color: #fff;
 }

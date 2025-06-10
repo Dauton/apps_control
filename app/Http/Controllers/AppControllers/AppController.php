@@ -13,7 +13,7 @@ class AppController extends Controller
     public function createApp(Request $request)
     {
 
-        ValidationsApp::validationsApp($request);
+        Validations::validationsApp($request);
 
         $site_app = $request->input('site_app');
         $name_app = $request->input('name_app');
@@ -21,13 +21,16 @@ class AppController extends Controller
         $port_app = $request->input('port_app');
         $server_db_app = $request->input('server_db_app');
         $name_db_app = $request->input('name_db_app');
+        $php_version_app = $request->input('php_version_app');
+        $laravel_version_app = $request->input('laravel_version_app');
         $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'NÃO'
         $author_app = $request->input('author_app');
-        $created_by = session('usuario.nome');
+        $created_by = session('user.name');
         $created_at = now();
         
-        if(!empty($url_intranet)) {
-            $url_intranet === 'NÃO';
+         // if null ou vazio, intranet_app = 'NÃO'
+        if(empty($url_intranet)) {
+            $url_intranet = 'NÃO';
         }
 
         App::insert([
@@ -37,6 +40,8 @@ class AppController extends Controller
             'port_app' => trim($port_app),
             'server_db_app' => trim($server_db_app),
             'name_db_app' => trim($name_db_app),
+            'php_version_app' => trim($php_version_app),
+            'laravel_version_app' => trim($laravel_version_app),
             'url_intranet' => trim($url_intranet),
             'author_app' => trim(Str::upper($author_app)),
             'created_by' => $created_by,

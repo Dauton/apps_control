@@ -1,6 +1,5 @@
-
-.select2-container {
-    width: inherit !important;
+.select2 {
+    width: 100% !important;
 }
 .select2-selection {
     width: 100% !important;
@@ -8,13 +7,13 @@
     display: flex !important;
     align-items: center !important;
     font-size: 13px !important;
+    border-radius: 0 3px 3px 0 !important;
 }
 .select2-selection:focus,
 .select2-search__field   {
     outline-color: var(--azul-principal);
 }
 .select2-results__option {
-    width: 100% !important; 
     font-size: 13px !important;
 }
 .select2-selection__arrow {

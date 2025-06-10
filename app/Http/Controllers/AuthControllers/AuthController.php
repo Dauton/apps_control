@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\AuthControllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -11,33 +11,33 @@ class AuthController extends Controller
         public function auth(Request $request)
     {
 
-        AuthValidations::validationsLogin($request);
+        Validations::validationsLogin($request);
 
-        $usuario = $request->input('usuario');
-        $senha = $request->input('senha');
+        $username = $request->input('username');
+        $password = $request->input('password');
 
-        $buscaUsuario = Usuario::where('usuario', $usuario)->first();
+        $searchUser = User::where('username', $username)->first();
 
-        $erro = redirect()->back()->withInput()->with('loginError', 'Credenciais inválidas.');
+        $error = redirect()->back()->withInput()->with('loginError', 'Credenciais inválidas.');
 
-        if(!$buscaUsuario) {
-            return $erro;
+        if(!$searchUser) {
+            return $error;
         }
 
-        if(!password_verify($senha, $buscaUsuario->senha)) {
-            return $erro;
+        if(!password_verify($password, $searchUser->password)) {
+            return $error;
         }
 
         session([
-            'usuario' => [
-                'id' => $buscaUsuario->id,
-                'nome' => $buscaUsuario->nome,
-                'usuario' => $buscaUsuario->usuario
+            'user' => [
+                'id' => $searchUser->id,
+                'name' => $searchUser->name,
+                'username' => $searchUser->username
             ]
         ]);
 
-        $buscaUsuario->ultimo_login = now();
-        $buscaUsuario->save();
+        $searchUser->last_login = now();
+        $searchUser->save();
 
         return redirect(route('homepage'))->with('alertSuccess', 'Logado com sucesso.');
 

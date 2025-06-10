@@ -5,10 +5,23 @@ namespace App\Http\Controllers\AppControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ValidationsApp extends Controller
+class Validations extends Controller
 {
     public static function validationsApp(Request $request)
     {
+
+        // SE FOR INFORMADO ALGO DIFERENTE DE "NÃO", A URL SERÁ VALIDADA
+        $url_intranet = $request->input('url_intranet');
+
+        if(!empty($url_intranet) && $url_intranet !== 'NÃO') {
+            $request->validate([
+                    'url_intranet' => ['url']
+                ], [
+                    'url_intranet.url' => 'A URL informada não é válida.'
+                ]
+            );
+        }
+
         $request->validate(
             [
                 'site_app'   => ['required'],
@@ -21,7 +34,7 @@ class ValidationsApp extends Controller
                 // REQUIREDS
                 'site_app.required'   => 'O site da ferramenta deve ser informado.',
                 'name_app.required'   => 'O nome da ferramenta deve ser informado.',
-                'server_app.required' => 'O IP do servidor deve ser informado',
+                'server_app.required' => 'O IP do servidor deve ser informado.',
                 'port_app.required'   => 'A porta da ferramenta deve ser informada.',
                 'author_app.required' => 'O nome do autor deve ser informado.',
                 

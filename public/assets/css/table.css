@@ -17,6 +17,7 @@ table thead tr td {
 
 table tbody tr td {
     font-size: 13px;
+    padding: 15px !important;
     text-align: center !important;
 }
 

@@ -3,14 +3,15 @@
     padding: 10px 0;
     display: flex;
     justify-content: left;
+    gap: 10px;
 }
 
 .buttons-container button {
     min-width: 80px;
     padding: 5px;
     border: none;
-    background: linear-gradient(to right top, var(--verde-principal), var(--verde-secondary));
-    border: 1px solid var(--verde-principal);
+    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
+    border: 1px solid var(--azul-principal);
     color: #fff;
     font-size: 12px;
     cursor: pointer;
@@ -18,8 +19,7 @@
 }
 
 .buttons-container button:hover {
-    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
-    border: 1px solid var(--azul-principal);
+    background: var(--azul-principal);
 }
 
 .buttons-container #btn-cancelar {

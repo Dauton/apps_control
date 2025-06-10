@@ -5,18 +5,18 @@ namespace App\Http\Controllers\AuthControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AuthValidations extends Controller
+class Validations extends Controller
 {
     public static function validationsLogin(Request $request)
     {
         $request->validate(
             [
-                'usuario' => ['required'],
-                'senha' => ['required']
+                'username' => ['required'],
+                'password' => ['required']
             ],
             [
-                'usuario.required' => 'O e-mail deve ser informado.',
-                'senha.required' => 'A senha deve ser informada.'
+                'username.required' => 'O usuário deve ser informado.',
+                'password.required' => 'A senha deve ser informada.'
             ]
         );
     }

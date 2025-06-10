@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('port_app')->nullable();
             $table->string('server_db_app');
             $table->string('name_db_app')->nullable();
-            $table->string('author_app');
+            $table->string('php_version_app', 45);
+            $table->string('larael_version_app', 45);
             $table->string('url_intranet');
+            $table->string('author_app');
             $table->string('created_by', 100)->nullable();
             $table->timestamps();
         });

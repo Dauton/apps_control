@@ -4,7 +4,12 @@
 
     <ul>
         <li><a href="{{ route('homepage') }}"><i class="fa-solid fa-house"></i>Início</a></li>
-        <li><a href="#"><i class="fa-solid fa-mug-hot"></i>Ferramentas</a></li>
-        <li><a href="{{ route('acessos') }}"><i class="fa-solid fa-gear"></i>Acessos</a></li>
+        <li><a href="{{ route('registrations') }}"><i class="fa-solid fa-database"></i>Cadastros</a></li>
+        <li><a href="{{ route('admin') }}"><i class="fa-solid fa-gear"></i>Admin</a></li>
     </ul>
+
+    <div class="menu-date">
+        <p>{{ now()->format('d/m/Y') }}</p>
+    </div>
+
 </nav>

@@ -4,43 +4,49 @@ form {
     flex-wrap: wrap;
     gap: 2%;
 }
-
-form label {
+form .inpsel-container {
     width: 49%;
-    margin: 0 0 10px 0;
+    margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
 }
 
-form label div {
+form .inpsel-container label {
     width: 100%;
 }
 
-form label input,
-form label select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-}
-
-form label input:focus,
-form label select:focus {
-    outline-color: var(--azul-principal);
-}
-
-form small {
+form .inpsel-container label small {
     color: #f00;
 }
 
-.buttons-container {
+form .inpsel-container div {
     width: 100%;
     display: flex;
-    gap: 10px;
+}
+
+form .inpsel-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 0 3px 3px 0;
+}
+form .inpsel-container input:focus {
+    outline: none;
+}
+
+form .inpsel-container i {
+    width: 40px;
+    padding: 9px;
+    border: 1px solid #aaa;
+    border-right: none;
+    border-radius: 3px 0 0 3px;
+    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
+    color: #f1f1f1;
+    text-align: center;
 }
 
 #input-error {
     font-size: 13px;
     color: #f00;
-    margin-bottom: -5px;
+    margin-bottom: -17px;
 }

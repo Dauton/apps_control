@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class NaoEstaLogado
+class NotLoggedIn
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class NaoEstaLogado
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(!session('usuario.nome')) {
-            return redirect(route('admin-login'))->with('loginError', 'Você deve estar autenticado.');
+        if(!session('user.name')) {
+            return redirect()->route('login')->with('loginError', 'Você deve estar autenticado.');
         }
 
         return $next($request);

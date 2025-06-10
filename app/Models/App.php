@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class App extends Model
 {
-    public static function listaApps()
+    public static function listApps()
     {
         return self::get();
     }

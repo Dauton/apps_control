@@ -5,12 +5,12 @@
     <div class="container-user-area">
         <div class="active-user-area">
             <i class="fa-solid fa-circle-user"></i>
-            <p>{{ session('usuario.nome') }}</p>
+            <p>{{ session('user.name') }}</p>
             <i class="fa-solid fa-caret-down"></i>
         </div>
         <nav class="options-user-area">
             <ul>
-                <li><a href="#"><i class="fa-solid fa-lock"></i>Minha senha<i class="fa-solid fa-angle-right"></i></a></li>
+                <li><a href="{{ route('edit-password', Crypt::encrypt(session('user.id')))}}"><i class="fa-solid fa-lock"></i>Minha senha<i class="fa-solid fa-angle-right"></i></a></li>
                 <li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i>Sair<i class="fa-solid fa-angle-right"></i></a></li>
             </ul>
         </nav>

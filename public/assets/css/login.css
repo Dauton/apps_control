@@ -22,61 +22,13 @@
     background: #fff;
 }
 
+#loginForm .inpsel-container {
+    width: 100% !important;
+}
+
 #loginForm img {
     width: 70px;
     margin: 0 0 20px 0;
-}
-
-#loginForm label,
-#loginForm label div input {
-    width: 100%;
-}
-
-#loginForm label {
-    font-size: 13px;
-}
-
-#loginForm label div {
-    display: flex;
-    align-items: center;
-    border: 1px solid #cdcdcd;
-    background: #e8f0fe;
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-#loginForm label div input {
-    padding: 10px;
-    border: none;
-    background: #e8f0fe;
-}
-
-#loginForm label div input:focus {
-    outline: none;
-}
-
-#loginForm label div i {
-    width: 40px;
-    padding: 12px;
-    font-size: 12px;
-    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
-    color: #fff;
-    text-align: center;
-}
-
-#loginForm .buttons-container button {
-    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
-}
-
-#loginForm .buttons-container button:hover {
-    background: linear-gradient(to right top, var(--azul-principal), var(--azul-principal));
-}
-
-#loginForm label p {
-    font-size: 13px;
-}
-#loginForm small {
-    color: #505050;
 }
 
 .login-rodape {
