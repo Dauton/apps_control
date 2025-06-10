@@ -41,6 +41,7 @@ form .inpsel-container input:focus {
 
 form .inpsel-container i {
     width: 40px;
+    height: 37px;
     padding: 9px;
     border: 1px solid #aaa;
     border-right: none;

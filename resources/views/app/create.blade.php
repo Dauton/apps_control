@@ -42,7 +42,9 @@
                 <i class="fa-solid fa-server"></i>
                 <select name="server_app" id="server_app">
                     <option value="">Servidor em que a ferramenta está</option>
-                    <option value="10.10.10.100" {{ old('server_app') == '10.10.10.100' ? 'selected' : '' }}>10.10.10.100</option>
+                    @foreach ($listServers as $server)
+                        <option value="{{ $server->ip_server }}" {{ old('server_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('server_app')
