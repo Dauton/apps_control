@@ -1,10 +1,10 @@
 @extends('layout.main-layout')
 @section('content')
 
-<section class="conteudo">
+<section class="content">
 
-    <div class="conteudo-cabecalho">
-        <h2>Últimas dez ferramentas cadastradas</h2>
+    <div class="content-header">
+        <h2>Últimas aplicações cadastradas</h2>
         <i class="fa-solid fa-minus" id="minimize-table"></i>
     </div>
 

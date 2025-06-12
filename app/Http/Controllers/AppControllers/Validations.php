@@ -32,10 +32,10 @@ class Validations extends Controller
             ],
             [
                 // REQUIREDS
-                'site_app.required'   => 'O site da ferramenta deve ser informado.',
-                'name_app.required'   => 'O nome da ferramenta deve ser informado.',
+                'site_app.required'   => 'O site da aplicação deve ser informado.',
+                'name_app.required'   => 'O nome da aplicação deve ser informado.',
                 'server_app.required' => 'O IP do servidor deve ser informado.',
-                'port_app.required'   => 'A porta da ferramenta deve ser informada.',
+                'port_app.required'   => 'A porta da aplicação deve ser informada.',
                 'author_app.required' => 'O nome do autor deve ser informado.',
                 
                 // DE MAIS

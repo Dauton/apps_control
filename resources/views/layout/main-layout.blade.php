@@ -6,21 +6,21 @@
     @include('layout.head')
 
 <body>
-    <main class="principal">    
+    <main class="main">    
 
         @if (Request::path() != 'admin/login')
             @include('layout.menu')
         @endif
 
-        <section class="centro">
+        <section class="center">
 
-            @include('layout.cabecalho')
+            @include('layout.main-header')
             
-            <article class="container-conteudo">
+            <article class="container-content">
                 @yield('content')
             </article>
 
-            @include('layout.rodape')
+            @include('layout.main-footer')
 
         </section>
 

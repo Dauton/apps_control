@@ -10,4 +10,25 @@ class Server extends Model
     {
         return self::get();
     }
+
+    public static function listServersTypeApps()
+    {
+        return self::whereIn('type_server', ['APLICAÇÕES', 'APLICAÇÕES E BANCO DE DADOS'])->get();
+        
+    }
+
+    public static function listServersTypeDB()
+    {
+        return self::where('type_server', ['BANCO DE DADOS', 'APLICAÇÕES E BANCO DE DADOS'])->get();
+    }
+
+    public static function lastServer()
+    {
+        return self::select('ip_server', 'created_at')->orderBy('id', 'DESC')->first();
+    }
+
+    public static function countServers()
+    {
+        return self::count();
+    }
 }

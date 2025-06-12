@@ -1,10 +1,10 @@
 @extends('layout.main-layout')
 @section('content')
 
-<section class="conteudo">
+<section class="content">
 
-    <div class="conteudo-cabecalho">
-        <h2>Editar ferramenta</h2>
+    <div class="content-header">
+        <h2>Editar aplicação</h2>
         <i class="fa-solid fa-minus" id="minimize-form"></i>
     </div>
 
@@ -29,7 +29,7 @@
             <label for="name_app">Nome<small> *</small></label>
             <div>
                 <i class="fa-solid fa-display"></i>
-                <input type="text" name="name_app" id="name_app" placeholder="Nome da ferramenta" value="{{ $app->name_app }}">
+                <input type="text" name="name_app" id="name_app" placeholder="Nome da aplicação" value="{{ $app->name_app }}">
             </div>
             @error('name_app')
             <p id="input-error">{{ $message }}</p>
@@ -135,10 +135,24 @@
 
         <div class="buttons-container">
             <button type="submit">Submeter</button>
-            <a href="{{ route('create-app') }}"><button type="button" id="btn-cancelar">Cancelar</button></a>
+            <a href="{{ route('create-app') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <button type="button" id="btn-delete">Excluir</button>
         </div>
 
     </form>
 </section>
+
+<div class="back-confirmation-box"></div>
+<div class="confirmation-box">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+
+    <h2>Tem certeza?</h2>
+    <p>Essa ação não poderá ser desfeita.</p>
+
+    <div class="buttons-container">
+        <a href="{{ route('deleteApp', Crypt::encrypt($app->id)) }}"><button type="button" id="btn-delete">Excluir</button></a>
+        <button type="button" id="btn-cancel">Cancelar</button>
+    </div>
+</div>
 
 @endsection

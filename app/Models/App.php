@@ -20,4 +20,9 @@ class App extends Model
     {
         return self::select('name_app', 'created_at')->orderBy('id', 'DESC')->first();
     }
+
+    public static function countApps()
+    {
+        return self::count();
+    }
 }

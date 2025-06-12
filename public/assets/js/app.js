@@ -55,11 +55,24 @@ $(document).ready(function () {
         }
     );
 
+
+    // MINIMIZAR FORMULÁRIO E TABELAS
     $('#minimize-form').click(function() {
-        $('.conteudo form').toggle();
+        $('.content form').toggle();
     });
     $('#minimize-table').click(function() {
-        $('.conteudo #DataTables_Table_0_wrapper').toggle();
+        $('.content #DataTables_Table_0_wrapper').toggle();
+    });
+
+
+    // MENSAGEM DE CONFIRMAÇÃO DE EXCLUSÃO
+    $('#btn-delete').click(function() {
+        $('.back-confirmation-box').fadeToggle(100);
+        $('.confirmation-box').fadeToggle(100).css({'display': 'flex'});
+    });
+    $('.confirmation-box #btn-cancel, .back-confirmation-box').click(function() {
+        $('.back-confirmation-box').fadeToggle(100);
+        $('.confirmation-box').fadeToggle(100).css({'display': 'none'});
     });
 
 });

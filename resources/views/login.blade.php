@@ -1,6 +1,6 @@
 @extends('layout.login-layout')
-@section('formulario')
-<form method="post" action="/auth" id="loginForm">
+@section('formulary')
+<form action="{{ route('auth') }}" method="POST"  id="loginForm">
     @csrf
 
     <img src="{{ asset('assets/img/id-logo.png') }}" alt="logo">
@@ -36,7 +36,7 @@
     <p class="show-alert login">{{ session('loginError') }}</p>
     @endsession
 
-    @include('layout.rodape')
+    @include('layout.main-footer')
 
 </form>
 @endsection

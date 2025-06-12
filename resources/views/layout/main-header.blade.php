@@ -1,4 +1,4 @@
-<header class="cabecalho">
+<header class="main-header">
     <div class="welcome">
         <h1>Olá, seja bem-vindo(a)!</h1>
     </div>

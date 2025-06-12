@@ -1,9 +1,9 @@
 @extends('layout.main-layout')
 @section('content')
 
-<section class="conteudo">
+<section class="content">
 
-    <div class="conteudo-cabecalho">
+    <div class="content-header">
         <h2>Alteração de senha</h2>
         <i class="fa-solid fa-minus" id="minimize-form"></i>
     </div>
@@ -33,7 +33,7 @@
 
         <div class="buttons-container">
             <button type="submit">Alterar</button>
-            <a href="{{ route('homepage') }}"><button type="button" id="btn-cancelar">Cancelar</button></a>
+            <a href="{{ route('homepage') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>

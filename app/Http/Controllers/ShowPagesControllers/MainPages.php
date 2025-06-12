@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\ShowPagesControllers;
 use App\Http\Controllers\Controller;
 use App\Models\App;
+use App\Models\Server;
+use App\Models\User;
 
 class MainPages extends Controller
 {
@@ -24,12 +26,18 @@ class MainPages extends Controller
     public function registrationsPAGE()
     {   
         $lastApp = App::lastApp();
-        return view('registrations', compact('lastApp'));
+        $lastServer = Server::lastServer();
+        $countApps = App::countApps();
+        $countServers = Server::countServers();
+
+        return view('registrations', compact('lastApp', 'lastServer', 'countApps', 'countServers'));
     }
 
     // ADMIN PAGE
     public function adminPAGE()
     {
-        return view('admin');
+        $listUsers = User::listUsers();
+
+        return view('admin', compact('listUsers'));
     }
 }

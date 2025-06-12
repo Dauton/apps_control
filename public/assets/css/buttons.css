@@ -22,12 +22,22 @@ button:hover {
     background: var(--azul-principal);
 }
 
-#btn-cancelar {
+#btn-cancel {
     background: transparent;
     color: #404040;
 }
 
-#btn-cancelar:hover {
+#btn-cancel:hover {
     background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
     color: #fff;
+}
+
+#btn-delete {
+    background: linear-gradient(to right top, #811606, #b32900);
+    border: 1px solid #811606;
+    color: #fff;
+}
+
+#btn-delete:hover {
+    background: #6c1305;
 }

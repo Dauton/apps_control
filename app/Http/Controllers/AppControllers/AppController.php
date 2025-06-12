@@ -23,13 +23,13 @@ class AppController extends Controller
         $name_db_app = $request->input('name_db_app');
         $php_version_app = $request->input('php_version_app');
         $laravel_version_app = $request->input('laravel_version_app');
-        $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'NÃO'
+        $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'N/T'
         $author_app = $request->input('author_app');
         $created_by = session('user.name');
         $created_at = now();
         
-         // if null ou vazio, intranet_app = 'NÃO'
-        Operations::ifNull($url_intranet, 'NÃO');
+         // if null ou vazio, intranet_app = 'N/T'
+        $url_intranet = Operations::ifNull($url_intranet);
 
         App::insert([
             'site_app' => trim(Str::upper($site_app)),
@@ -46,7 +46,7 @@ class AppController extends Controller
             'created_at' => $created_at
         ]);
 
-        return redirect()->route('homepage')->with('alertSuccess', 'Ferramenta cadastrada com sucesso.');
+        return redirect()->route('create-app')->with('alertSuccess', 'Aplicação cadastrada com sucesso.');
     }
 
     public function editApp(Request $request, $id)
@@ -62,12 +62,12 @@ class AppController extends Controller
         $name_db_app = $request->input('name_db_app');
         $php_version_app = $request->input('php_version_app');
         $laravel_version_app = $request->input('laravel_version_app');
-        $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'NÃO'
+        $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'N/T'
         $author_app = $request->input('author_app');
         $updated_at = now();
 
-        // if null ou vazio, intranet_app = 'NÃO'
-        Operations::ifNull($url_intranet, 'NÃO');
+        // if null ou vazio, intranet_app = 'N/T'
+        Operations::ifNull($url_intranet);
 
         App::where('id', $id)->update([
             'site_app' => trim(Str::upper($site_app)),
@@ -83,7 +83,16 @@ class AppController extends Controller
             'updated_at' => $updated_at
         ]);
 
-        return redirect()->route('create-app')->with('alertSuccess', 'Ferramenta editada com sucesso.');
+        return redirect()->route('create-app')->with('alertSuccess', 'Aplicação editada com sucesso.');
 
+    }
+
+    public function deleteApp($id)
+    {
+        $id = Operations::decryptID($id);
+
+        App::where('id', $id)->delete();
+
+        return redirect()->route('create-app')->with('alertSuccess', 'Aplicação excluída com sucesso.');
     }
 }

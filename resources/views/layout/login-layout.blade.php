@@ -4,9 +4,9 @@
 @include('layout.head')
 
 <body>
-    <main class="login-principal">
+    <main class="login-main">
         
-        @yield('formulario')
+        @yield('formulary')
 
     </main>
 </body>

@@ -27,7 +27,7 @@ class AppsSeeder extends Seeder
         $created_by = 'System'; // session('user.username');
         $created_at = now();
 
-        Operations::ifNull($url_intranet, 'NÃO');
+        $url_intranet = Operations::ifNull($url_intranet);
 
         App::create([
             'site_app' => trim(Str::upper($site_app)),

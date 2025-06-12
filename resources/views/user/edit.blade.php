@@ -4,18 +4,18 @@
 <section class="content">
 
     <div class="content-header">
-        <h2>Cadastrar usuário</h2>
+        <h2>Editar usuário</h2>
         <i class="fa-solid fa-minus" id="minimize-form"></i>
     </div>
 
-    <form action="{{ route('createUser') }}" method="POST">
+    <form action="{{ route('editUser', $user->id) }}" method="POST">
         @csrf
 
         <div class="inpsel-container">
             <label for="name">Nome</label>
             <div>
                 <i class="fa-solid fa-address-card"></i>
-                <input type="text" name="name" id="name" placeholder="Nome completo" value="{{ old('name') }}">
+                <input type="text" name="name" id="name" placeholder="Nome completo" value="{{ $user->name }}">
             </div>
             @error('name')
             <p id="input-error">{{ $message }}</p>
@@ -26,12 +26,33 @@
             <label for="username">Usuário</label>
             <div>
                 <i class="fa-solid fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="Usuário de acesso" value="{{ old('username') }}">
+                <input type="text" name="username" id="username" placeholder="Usuário de acesso" value="{{ $user->username }}">
             </div>
             @error('username')
             <p id="input-error">{{ $message }}</p>
             @enderror
         </div>
+
+        <div class="buttons-container">
+            <button type="submit">Submeter</button>
+            <a href="{{ route('admin') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <button type="button" id="btn-delete">Excluir</button>
+        </div>
+
+    </form>
+</section>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+<section class="content">
+
+    <div class="content-header">
+        <h2>Editar senha desse usuário</h2>
+        <i class="fa-solid fa-minus" id="minimize-form"></i>
+    </div>
+
+    <form action="{{ route('editPassword', $user->id) }}" method="POST">
+        @csrf
 
         <div class="inpsel-container">
             <label for="password">Senha</label>
@@ -56,46 +77,24 @@
         </div>
 
         <div class="buttons-container">
-            <button type="submit">Cadastrar</button>
-            <a href="{{ route('homepage') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <button type="submit">Submeter</button>
+            <a href="{{ route('admin') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>
 </section>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
+<div class="back-confirmation-box"></div>
+<div class="confirmation-box">
+    <i class="fa-solid fa-triangle-exclamation"></i>
 
-<section class="content">
+    <h2>Tem certeza?</h2>
+    <p>Essa ação não poderá ser desfeita.</p>
 
-    <div class="content-header">
-        <h2>Usuários cadastrados</h2>
-        <i class="fa-solid fa-minus" id="minimize-table"></i>
+    <div class="buttons-container">
+        <a href="{{ route('deleteUser', Crypt::encrypt($user->id)) }}"><button type="button" id="btn-delete">Excluir</button></a>
+        <button type="button" id="btn-cancel">Cancelar</button>
     </div>
-
-    <table>
-        <thead>
-            <tr>
-                <td>Nome</td>
-                <td>Usuário</td>
-                <td>Último acesso</td>
-                <td>Cadastrado por</td>
-                <td>Cadastrado em</td>
-                <td>Editar</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($listUsers as $show)
-                <tr>
-                    <td>{{ $show->name }}</td>
-                    <td>{{ $show->username }}</td>
-                    <td>{{ $show->last_login }}</td>
-                    <td>{{ $show->created_by }}</td>
-                    <td>{{ \App\Http\Services\Operations::formatDate($show->created_at) }}</td>
-                    <td><a href="{{ route('edit-user', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</section>
+</div>
 
 @endsection

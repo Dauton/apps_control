@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 
@@ -18,10 +19,16 @@ class Operations
         return $value;
     }
 
-    public static function ifNull($value, $final_value)
+    public static function ifNull($value)
     {
         if(empty($value)) {
-            $value = $final_value;
+            $value = 'N/T';
         }
+        return $value;
+    }
+
+    public static function formatDate($date)
+    {
+        return Carbon::parse($date)->format('d/m/Y - H:i');
     }
 }

@@ -1,10 +1,10 @@
 @extends('layout.main-layout')
 @section('content')
 
-<section class="conteudo">
+<section class="content">
 
-    <div class="conteudo-cabecalho">
-        <h2>Cadastrar ferramenta</h2>
+    <div class="content-header">
+        <h2>Cadastrar aplicação</h2>
         <i class="fa-solid fa-minus" id="minimize-form"></i>
     </div>
 
@@ -16,7 +16,7 @@
             <div>
                 <i class="fa-solid fa-industry" id="icon_site_app"></i>
                 <select name="site_app" id="site_app">
-                    <option value="">Site da ferramenta</option>
+                    <option value="">Site da aplicação</option>
                     <option value="CORPORATIVO" {{ old('site_app') == 'CORPORATIVO' ? 'selected' : '' }}>CORPORATIVO</option>
                 </select>
             </div>
@@ -29,7 +29,7 @@
             <label for="name_app">Nome<small> *</small></label>
             <div>
                 <i class="fa-solid fa-display"></i>
-                <input type="text" name="name_app" id="name_app" placeholder="Nome da ferramenta" value="{{ old('name_app') }}">
+                <input type="text" name="name_app" id="name_app" placeholder="Nome da aplicação" value="{{ old('name_app') }}">
             </div>
             @error('name_app')
             <p id="input-error">{{ $message }}</p>
@@ -41,8 +41,8 @@
             <div>
                 <i class="fa-solid fa-server"></i>
                 <select name="server_app" id="server_app">
-                    <option value="">Servidor em que a ferramenta está</option>
-                    @foreach ($listServers as $server)
+                    <option value="">Servidor em que a aplicação está</option>
+                    @foreach ($apps_servers as $server)
                         <option value="{{ $server->ip_server }}" {{ old('server_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
                     @endforeach
                 </select>
@@ -68,8 +68,10 @@
             <div>
                 <i class="fa-solid fa-server"></i>
                 <select name="server_db_app" id="server_db_app">
-                    <option value="">Servidor em que o BD da ferramenta está</option>
-                    <option value="10.10.10.200" {{ old('server_db_app') == '10.10.10.200' ? 'selected' : '' }}>10.10.10.200</option>
+                    <option value="">Servidor em que o BD da aplicação está</option>
+                    @foreach ($db_servers as $server)
+                        <option value="{{ $server->ip_server }}" {{ old('server_db_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('server_db_app')
@@ -126,7 +128,7 @@
             <div>
                 <i class="fa-solid fa-user-tie"></i>
                 <select name="author_app" id="author_app">
-                    <option value="">Nome do autor da ferramenta</option>
+                    <option value="">Nome do autor da aplicação</option>
                     <option value="AUTOR DESCONHECIDO" {{ old('author_app') == 'AUTOR DESCONHECIDO' ? 'selected' : '' }}>AUTOR DESCONHECIDO</option>
                 </select>
             </div>
@@ -137,7 +139,7 @@
 
         <div class="buttons-container">
             <button type="submit">Cadastrar</button>
-            <a href="{{ route('registrations') }}"><button type="button" id="btn-cancelar">Cancelar</button></a>
+            <a href="{{ route('registrations') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>
@@ -145,10 +147,10 @@
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-<section class="conteudo">
+<section class="content">
 
-    <div class="conteudo-cabecalho">
-        <h2>Ferramentas cadastradas</h2>
+    <div class="content-header">
+        <h2>Aplicações cadastradas</h2>
         <i class="fa-solid fa-minus" id="minimize-table"></i>
     </div>
 
