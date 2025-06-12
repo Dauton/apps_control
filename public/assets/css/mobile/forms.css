@@ -1,0 +1,11 @@
+@media screen and (width < 720px) {
+    form {
+        flex-direction: column;
+    }
+
+    form div,
+    form div input {
+        width: 100% !important;
+    }
+    
+}

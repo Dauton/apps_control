@@ -5,6 +5,7 @@
     max-height: 50px;
     display: flex;
     align-items: center;
+    background: #cdcdcd;
     justify-content: space-between;
     border-bottom: 1px solid #aaa;
     overflow: hidden;
@@ -17,7 +18,6 @@
     padding: 0 20px;
     display: flex;
     align-items: center;
-    background: #cdcdcd;
     color: #404040;
 }
 .main-header .active-user-area {
@@ -39,22 +39,22 @@
     font-size: 30px;
 }
 .main-header .active-user-area p {
-    font-size: 14px;
+    font-size: 12px;
     white-space: nowrap;
     overflow: hidden;
 }
 .main-header .active-user-area i:last-child {
-    font-size: 10px;    
+    font-size: 10px;
 }
 
 .main-header .options-user-area {
     width: 220px;
     background: #fff;
     border: 1px solid #aaa;
-    border-top: 0;
     position: absolute;
     display: none;
     overflow: hidden;
+    z-index: 2;
 }
 .main-header .options-user-area ul {
     list-style: none;
@@ -66,7 +66,7 @@
     gap: 10px;
     text-decoration: none;
     color: #404040;
-    font-size: 13px;
+    font-size: 12px;
 }
 .main-header .options-user-area ul li a .fa-angle-right {
     margin-left: auto;
@@ -75,4 +75,8 @@
 
 .main-header .options-user-area ul li a:hover {
     background: #f1f1f1;
+}
+
+#active-menu {
+    display: none;
 }

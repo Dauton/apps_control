@@ -18,8 +18,8 @@ $(document).ready(function () {
             }
         ]
     });
-    
-    
+
+
     // BIBLIOTECA SELECT2
     $('select').select2({
         language: "pt-BR",
@@ -74,5 +74,16 @@ $(document).ready(function () {
         $('.back-confirmation-box').fadeToggle(100);
         $('.confirmation-box').fadeToggle(100).css({'display': 'none'});
     });
+
+
+    // EXIBIR MENU LATERAL MOBILE
+    $('#active-menu').click(function() {
+        $('.back-menu').fadeToggle(100);
+        $('.menu').slideDown(200);
+    })
+    $('#deactivate-menu, .back-menu').click(function() {
+        $('.back-menu').fadeToggle(200);
+        $('.menu').slideUp(100);
+    })
 
 });

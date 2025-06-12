@@ -14,8 +14,8 @@ class AppsSeeder extends Seeder
      */
     public function run(): void
     {
-        $site_app = 'SIGLAS';
-        $name_app = 'Descrição ferramenta';
+        $site_app = 'CORPORATIVO';
+        $name_app = 'APP';
         $server_app = '10.10.10.100';
         $port_app = '1234';
         $server_db_app = '10.10.10.200';
@@ -23,8 +23,8 @@ class AppsSeeder extends Seeder
         $php_version_app = '8.4';
         $laravel_version_app = '12';
         $url_intranet = 'https://intranet.app.com.br'; // if null, url_intranet = 'NÃO'
-        $author_app = 'Nome do desenvolvedor';
-        $created_by = 'System'; // session('user.username');
+        $author_app = 'Developer';
+        $created_by = 'Seeder'; // session('user.username');
         $created_at = now();
 
         $url_intranet = Operations::ifNull($url_intranet);
@@ -37,7 +37,7 @@ class AppsSeeder extends Seeder
             'server_db_app' => trim($server_db_app),
             'name_db_app' => trim($name_db_app),
             'php_version_app' => trim($php_version_app),
-            'larvel_version_app' => trim($laravel_version_app),
+            'laravel_version_app' => trim($laravel_version_app),
             'url_intranet' => trim($url_intranet),
             'author_app' => trim(Str::upper($author_app)),
             'created_by' => trim(Str::upper($created_by)),

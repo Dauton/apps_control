@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('servers', function(Blueprint $table) {
             $table->id();
             $table->string('type_server', 45);

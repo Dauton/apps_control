@@ -13,7 +13,7 @@ class Validations extends Controller
         // SE FOR INFORMADO ALGO DIFERENTE DE "NÃO", A URL SERÁ VALIDADA
         $url_intranet = $request->input('url_intranet');
 
-        if(!empty($url_intranet) && $url_intranet !== 'NÃO') {
+        if(!empty($url_intranet) && $url_intranet !== 'N/T') {
             $request->validate([
                     'url_intranet' => ['url']
                 ], [
@@ -37,7 +37,7 @@ class Validations extends Controller
                 'server_app.required' => 'O IP do servidor deve ser informado.',
                 'port_app.required'   => 'A porta da aplicação deve ser informada.',
                 'author_app.required' => 'O nome do autor deve ser informado.',
-                
+
                 // DE MAIS
                 'server_app.ip'    => 'O servidor informado não é válido.',
                 'port_app.integer' => 'A porta informada não é válida.'

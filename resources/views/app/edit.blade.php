@@ -17,7 +17,13 @@
                 <i class="fa-solid fa-industry" id="icon_site_app"></i>
                 <select name="site_app" id="site_app">
                     <option value="{{ $app->site_app }}">{{ $app->site_app }}</option>
-                    <option value="CORPORATIVO" {{ old('site_app') == 'CORPORATIVO' ? 'selected' : '' }}>CORPORATIVO</option>
+                    <option value="CORPORATIVO">CORPORATIVO</option>
+                    @foreach ($sites as $show)
+                        @php
+                            $value = $show['usu_nomfil']
+                        @endphp
+                        <option value="{{ $value }}" {{ old('site_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('site_app')
@@ -125,7 +131,12 @@
                 <i class="fa-solid fa-user-tie"></i>
                 <select name="author_app" id="author_app">
                     <option value="{{ $app->author_app }}">{{ $app->author_app }}</option>
-                    <option value="AUTOR DESCONHECIDO" {{ old('author_app') == 'AUTOR DESCONHECIDO' ? 'selected' : '' }}>AUTOR DESCONHECIDO</option>
+                    @foreach ($collaborators as $show)
+                        @php
+                            $value = $show['usu_nomfun']
+                        @endphp
+                        <option value="{{ $value }}" {{ old('author_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('author_app')

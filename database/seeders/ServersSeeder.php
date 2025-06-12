@@ -14,14 +14,14 @@ class ServersSeeder extends Seeder
      */
     public function run(): void
     {
-        $type_server = 'Aplicações';
+        $type_server = 'APLICAÇÕES E BANCO DE DADOS'; // or APLICAÇÕES or BANCO DE DADOS.
         $name_server = '200';
         $ip_server = '10.10.10.200';
         $os_server = 'Windows';
         $os_version_server = 'Server 2022';
         $php_version_server = '8.4';
         $laravel_version_server = '12';
-        $created_by = "Dauton Pereira Félix"; // session('user.name')
+        $created_by = "Seeder"; // session('user.name')
         $created_at = now();
 
         $php_version_server = Operations::ifNull($php_version_server);

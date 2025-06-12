@@ -15,14 +15,14 @@
                 <td>Nome</td>
                 <td>Servidor</td>
                 <td>Porta</td>
-                <td>Servidor BD</td>
+                <td>BD</td>
                 <td>Nome BD</td>
-                <td>Versão PHP</td>
-                <td>Versão Laravel</td>
+                <td>PHP</td>
+                <td>Laravel</td>
                 <td>Intranet</td>
                 <td>Autor</td>
-                <td>Cadastrado por</td>
-                <td>Data cadastro</td>
+                <td>Por</td>
+                <td>Data</td>
                 <td>Editar</tr>
             </tr>
         </thead>

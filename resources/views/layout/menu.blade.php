@@ -1,5 +1,8 @@
+<div class="back-menu"></div>
 <nav class="menu">
-    
+
+    <i class="fa-solid fa-xmark" id="deactivate-menu"></i>
+
     <img src="{{ asset('assets/img/id-logo-branco.png') }}" alt="logo">
 
     <ul>

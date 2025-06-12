@@ -1,0 +1,26 @@
+@media screen and (width <= 720px) {
+
+    .main-header {
+        justify-content: space-between;
+    }
+    .main-header .welcome {
+        display:  none;
+    }
+    .main-header .active-user-area {
+        width: fit-content;
+    }
+    .main-header .active-user-area p {
+        display: none !important;
+    }
+    .main-header .options-user-area {
+        right: 0;
+    }
+
+    #active-menu {
+        display: block;
+        margin: 0 0 0 20px;
+        font-size: 25px;
+        color: #505050;
+        cursor: pointer;
+    }
+}

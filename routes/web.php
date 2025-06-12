@@ -13,8 +13,6 @@ use App\Http\Controllers\UserControllers\UserController;
 use App\Http\Middleware\IsLoggedIn;
 use App\Http\Middleware\NotLoggedIn;
 use Illuminate\Support\Facades\Route;
-use App\Http\Services\Operations;
-use App\Models\User;
 
 Route::middleware([IsLoggedIn::class])->group(function() {
 
@@ -62,12 +60,12 @@ Route::middleware([NotLoggedIn::class])->group(function() {
         Route::post('/createUser', [UserController::class, 'createUser'])->name('createUser');
         Route::post('/editUser/{id}', [UserController::class, 'editUser'])->name('editUser');
         Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
-        
+
         // APP
         Route::post('/createApp', [AppController::class, 'createApp'])->name('createApp');
         Route::post('/editApp/{id}', [AppController::class, 'editApp'])->name('editApp');
         Route::get('/deleteApp/{id}', [AppController::class, 'deleteApp'])->name('deleteApp');
-        
+
         // SERVER
         Route::post('/createServer', [ServerController::class, 'createServer'])->name('createServer');
         Route::post('/editServer/{id}', [ServerController::class, 'editServer'])->name('editServer');
@@ -79,4 +77,4 @@ Route::middleware([NotLoggedIn::class])->group(function() {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
-    
+

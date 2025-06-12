@@ -17,7 +17,13 @@
                 <i class="fa-solid fa-industry" id="icon_site_app"></i>
                 <select name="site_app" id="site_app">
                     <option value="">Site da aplicação</option>
-                    <option value="CORPORATIVO" {{ old('site_app') == 'CORPORATIVO' ? 'selected' : '' }}>CORPORATIVO</option>
+                    <option value="CORPORATIVO">CORPORATIVO</option>
+                    @foreach ($sites as $show)
+                        @php
+                            $value = $show['usu_nomfil']
+                        @endphp
+                        <option value="{{ $value }}" {{ old('site_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('site_app')
@@ -41,7 +47,7 @@
             <div>
                 <i class="fa-solid fa-server"></i>
                 <select name="server_app" id="server_app">
-                    <option value="">Servidor em que a aplicação está</option>
+                    <option value="">Servidor da aplicação</option>
                     @foreach ($apps_servers as $server)
                         <option value="{{ $server->ip_server }}" {{ old('server_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
                     @endforeach
@@ -68,7 +74,7 @@
             <div>
                 <i class="fa-solid fa-server"></i>
                 <select name="server_db_app" id="server_db_app">
-                    <option value="">Servidor em que o BD da aplicação está</option>
+                    <option value="">Servidor do BD da aplicação</option>
                     @foreach ($db_servers as $server)
                         <option value="{{ $server->ip_server }}" {{ old('server_db_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
                     @endforeach
@@ -129,7 +135,12 @@
                 <i class="fa-solid fa-user-tie"></i>
                 <select name="author_app" id="author_app">
                     <option value="">Nome do autor da aplicação</option>
-                    <option value="AUTOR DESCONHECIDO" {{ old('author_app') == 'AUTOR DESCONHECIDO' ? 'selected' : '' }}>AUTOR DESCONHECIDO</option>
+                    @foreach ($collaborators as $show)
+                        @php
+                            $value = $show['usu_nomfun']
+                        @endphp
+                        <option value="{{ $value }}" {{ old('author_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('author_app')
@@ -173,21 +184,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($apps as $exibe)
+            @foreach($apps as $show)
             <tr>
-                <td>{{ $exibe->site_app }}</td>
-                <td>{{ $exibe->name_app }}</td>
-                <td>{{ $exibe->server_app }}</td>
-                <td>{{ $exibe->port_app }}</td>
-                <td>{{ $exibe->server_db_app }}</td>
-                <td>{{ $exibe->name_db_app }}</td>
-                <td>{{ $exibe->php_version_app }}</td>
-                <td>{{ $exibe->laravel_version_app }}</td>
-                <td>{{ $exibe->url_intranet }}</td>
-                <td>{{ $exibe->author_app }}</td>
-                <td>{{ $exibe->created_by }}</td>
-                <td>{{ \Carbon\Carbon::parse($exibe->created_at)->format('d/m/Y - H:i') }}</td>
-                <td><a href="{{ route('edit-app', Crypt::encrypt($exibe->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
+                <td>{{ $show->site_app }}</td>
+                <td>{{ $show->name_app }}</td>
+                <td>{{ $show->server_app }}</td>
+                <td>{{ $show->port_app }}</td>
+                <td>{{ $show->server_db_app }}</td>
+                <td>{{ $show->name_db_app }}</td>
+                <td>{{ $show->php_version_app }}</td>
+                <td>{{ $show->laravel_version_app }}</td>
+                <td>{{ $show->url_intranet }}</td>
+                <td>{{ $show->author_app }}</td>
+                <td>{{ $show->created_by }}</td>
+                <td>{{ \App\Http\Services\Operations::formatDate($show->created_at)}}</td>
+                <td><a href="{{ route('edit-app', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
             </tr>
             @endforeach
         </tbody>

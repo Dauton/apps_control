@@ -12,7 +12,7 @@
         @csrf
 
         <div class="inpsel-container">
-            <label for="name">Nome</label>
+            <label for="name">Nome<small> *</small></label>
             <div>
                 <i class="fa-solid fa-address-card"></i>
                 <input type="text" name="name" id="name" placeholder="Nome completo" value="{{ old('name') }}">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="inpsel-container">
-            <label for="username">Usuário</label>
+            <label for="username">Usuário<small> *</small></label>
             <div>
                 <i class="fa-solid fa-user"></i>
                 <input type="text" name="username" id="username" placeholder="Usuário de acesso" value="{{ old('username') }}">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="inpsel-container">
-            <label for="password">Senha</label>
+            <label for="password">Senha<small> *</small></label>
             <div>
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="password" id="password" placeholder="Senha de acesso" autocomplete="new-password" value="{{ old('password') }}">
@@ -45,7 +45,7 @@
         </div>
 
         <div class="inpsel-container">
-            <label for="password-repeat">Repita a senha</label>
+            <label for="password-repeat">Repita a senha<small> *</small></label>
             <div>
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="password-repeat" id="password-repeat" placeholder="Repita a senha de acesso" autocomplete="new-password" value="{{ old('password-repeat') }}">

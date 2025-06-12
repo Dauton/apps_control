@@ -126,18 +126,18 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($servers as $exibe)
+            @foreach($servers as $show)
             <tr>
-                <td>{{ $exibe->type_server }}</td>
-                <td>{{ $exibe->name_server }}</td>
-                <td>{{ $exibe->ip_server }}</td>
-                <td>{{ $exibe->os_server }}</td>
-                <td>{{ $exibe->os_version_server }}</td>
-                <td>{{ $exibe->php_version_server }}</td>
-                <td>{{ $exibe->laravel_version_server }}</td>
-                <td>{{ $exibe->created_by }}</td>
-                <td>{{ \Carbon\Carbon::parse($exibe->created_at)->format('d/m/Y - H:i') }}</td>
-                <td><a href="{{ route('edit-server', Crypt::encrypt($exibe->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
+                <td>{{ $show->type_server }}</td>
+                <td>{{ $show->name_server }}</td>
+                <td>{{ $show->ip_server }}</td>
+                <td>{{ $show->os_server }}</td>
+                <td>{{ $show->os_version_server }}</td>
+                <td>{{ $show->php_version_server }}</td>
+                <td>{{ $show->laravel_version_server }}</td>
+                <td>{{ $show->created_by }}</td>
+                <td>{{ \App\Http\Services\Operations::formatDate($show->created_at)}}</td>
+                <td><a href="{{ route('edit-server', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
             </tr>
             @endforeach
         </tbody>

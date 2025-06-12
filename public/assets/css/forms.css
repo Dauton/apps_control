@@ -13,6 +13,7 @@ form .inpsel-container {
 
 form .inpsel-container label {
     width: 100%;
+    font-size: 14px;
 }
 
 form .inpsel-container label small {

@@ -1,0 +1,9 @@
+@media screen and (width <= 720px){
+
+    #loginForm {
+        width: 95%;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+    }
+}

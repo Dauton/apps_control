@@ -1,7 +1,11 @@
 <header class="main-header">
+
+    <i class="fa-solid fa-bars" id="active-menu"></i>
+    
     <div class="welcome">
         <h1>Olá, seja bem-vindo(a)!</h1>
     </div>
+
     <div class="container-user-area">
         <div class="active-user-area">
             <i class="fa-solid fa-circle-user"></i>

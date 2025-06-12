@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('apps', function(Blueprint $table) {
             $table->id();
             $table->string('site_app', 45);
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->string('server_db_app');
             $table->string('name_db_app')->nullable();
             $table->string('php_version_app', 45);
-            $table->string('larael_version_app', 45);
+            $table->string('laravel_version_app', 45);
             $table->string('url_intranet', 256);
             $table->string('author_app', 150);
             $table->string('created_by', 150)->nullable();

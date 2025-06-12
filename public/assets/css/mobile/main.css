@@ -1,0 +1,10 @@
+@media screen and (width <= 720px) {
+    .container-content {
+        padding: 0px !important;
+    }
+    .content {
+        width: fit-content;
+        min-width: 100%;
+        padding: 20px !important;
+    }
+}
