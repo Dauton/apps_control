@@ -4,6 +4,10 @@ form {
     flex-wrap: wrap;
     gap: 2%;
 }
+
+form a {
+    margin: 0 50% 20px 0;
+}
 form .inpsel-container {
     width: 49%;
     margin-bottom: 15px;
@@ -34,6 +38,15 @@ form .inpsel-container input {
     color: #444;
     font-family: Arial, Helvetica, sans-serif
 }
+
+form .inpsel-container input::file-selector-button {
+    display: none;
+}
+
+form .inpsel-container input[type=file] {
+    cursor: pointer;
+}
+
 form .inpsel-container input:hover {
     background: #f1f1f1 !important;
 }

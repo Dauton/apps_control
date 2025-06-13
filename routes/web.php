@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthControllers\AuthController;
 use App\Http\Controllers\ShowPagesControllers\PassowrdPages;
 use App\Http\Controllers\ShowPagesControllers\MainPages;
 use App\Http\Controllers\AppControllers\AppController;
+use App\Http\Controllers\ImportsControllers\ImportExcelController;
 use App\Http\Controllers\PasswordControllers\PasswordController;
 use App\Http\Controllers\ServerControllers\ServerController;
 use App\Http\Controllers\ShowPagesControllers\AppPages;
@@ -12,6 +13,7 @@ use App\Http\Controllers\ShowPagesControllers\UserPages;
 use App\Http\Controllers\UserControllers\UserController;
 use App\Http\Middleware\IsLoggedIn;
 use App\Http\Middleware\NotLoggedIn;
+use App\Imports\ImportApp;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([IsLoggedIn::class])->group(function() {
@@ -31,6 +33,7 @@ Route::middleware([NotLoggedIn::class])->group(function() {
 
         Route::get('/homepage', [MainPages::class, 'homePAGE'])->name('homepage');
         Route::get('/registrations', [MainPages::class, 'registrationsPAGE'])->name('registrations');
+        Route::get('/importation', [MainPages::class, 'importationPAGE'])->name('importation');
         Route::get('/admin', [MainPages::class, 'adminPAGE'])->name('admin');
 
 
@@ -73,8 +76,23 @@ Route::middleware([NotLoggedIn::class])->group(function() {
 
 
     // LOGOUT
+        Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // IMPORTS
+        // APP
+        Route::post('/importApp', [ImportExcelController::class, 'importApp'])->name('importApp');
+
+        // SERVER
+        Route::post('/importServer', [ImportExcelController::class, 'importServer'])->name('importServer');
+
+
+    // DOWNLOAD
+        Route::get('/download/{file}', function($file) {
+
+            return response()->download(storage_path('app/public/' . $file));
+
+        })->name('download');
 
 });
 

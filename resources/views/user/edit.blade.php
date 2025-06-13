@@ -5,14 +5,14 @@
 
     <div class="content-header">
         <h2>Editar usuário</h2>
-        <i class="fa-solid fa-minus" id="minimize-form"></i>
+        <i class="fa-solid fa-minus" id="minimize-form1"></i>
     </div>
 
-    <form action="{{ route('editUser', $user->id) }}" method="POST">
+    <form action="{{ route('editUser', $user->id) }}" method="POST" class="form1">
         @csrf
 
         <div class="inpsel-container">
-            <label for="name">Nome</label><small> *</small>
+            <label for="name">Nome<small> *</small></label>
             <div>
                 <i class="fa-solid fa-address-card"></i>
                 <input type="text" name="name" id="name" placeholder="Nome completo" value="{{ $user->name }}">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="inpsel-container">
-            <label for="username">Usuário</label><small> *</small>
+            <label for="username">Usuário<small> *</small></label>
             <div>
                 <i class="fa-solid fa-user"></i>
                 <input type="text" name="username" id="username" placeholder="Usuário de acesso" value="{{ $user->username }}">
@@ -48,10 +48,10 @@
 
     <div class="content-header">
         <h2>Editar senha desse usuário</h2>
-        <i class="fa-solid fa-minus" id="minimize-form"></i>
+        <i class="fa-solid fa-minus" id="minimize-form2"></i>
     </div>
 
-    <form action="{{ route('editPassword', $user->id) }}" method="POST">
+    <form action="{{ route('editPassword', $user->id) }}" method="POST" class="form2">
         @csrf
 
         <div class="inpsel-container">

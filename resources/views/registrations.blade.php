@@ -35,8 +35,7 @@
                 <td>{{ $countServers }}</td>
                 <td><a href="{{ route('create-server') }}"><i class="fa-solid fa-square-arrow-up-right"></i></a></td>
             </tr>
-
-
+            
         </tbody>
     </table>
 </section>

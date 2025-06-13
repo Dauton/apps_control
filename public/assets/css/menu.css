@@ -27,7 +27,6 @@
     border-radius: 3px;
     color: #fff;
     font-size: 13px;
-    text-decoration: none;
 }
 .menu ul li a:hover {
     background: var(--azul-principal);

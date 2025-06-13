@@ -6,6 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Server extends Model
 {
+
+    protected $fillable = [
+        'type_server',
+        'name_server',
+        'ip_server',
+        'os_server',
+        'os_version_server',
+        'php_version_server',
+        'laravel_version_server',
+        'created_by',
+        'created_at',
+        'updated_at'
+    ];
+
     public static function listServers()
     {
         return self::get();
@@ -14,7 +28,7 @@ class Server extends Model
     public static function listServersTypeApps()
     {
         return self::whereIn('type_server', ['APLICAÇÕES', 'APLICAÇÕES E BANCO DE DADOS'])->get();
-        
+
     }
 
     public static function listServersTypeDB()

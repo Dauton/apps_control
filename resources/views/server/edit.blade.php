@@ -5,10 +5,10 @@
 
     <div class="content-header">
         <h2>Cadastrar servidor</h2>
-        <i class="fa-solid fa-minus" id="minimize-form"></i>
+        <i class="fa-solid fa-minus" id="minimize-form1"></i>
     </div>
 
-    <form action="{{ route('editServer', $server->id) }}" method="POST">
+    <form action="{{ route('editServer', $server->id) }}" method="POST" class="form1">
         @csrf
 
         <div class="inpsel-container">
@@ -32,7 +32,7 @@
             <div>
                 <i class="fa-solid fa-server"></i>
                 <input type="text" name="name_server" id="name_server" placeholder="Dê um nome ao servidor" value="{{ $server->name_server }}">
-            </div> 
+            </div>
             @error('name_server')
             <p id="input-error">{{ $message }}</p>
             @enderror

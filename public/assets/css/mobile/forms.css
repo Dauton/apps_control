@@ -3,9 +3,14 @@
         flex-direction: column;
     }
 
+    form a {
+        width: fit-content;
+        margin: 0 0 20px 0;
+    }
+
     form div,
     form div input {
         width: 100% !important;
     }
-    
+
 }

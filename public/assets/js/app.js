@@ -57,8 +57,11 @@ $(document).ready(function () {
 
 
     // MINIMIZAR FORMULÁRIO E TABELAS
-    $('#minimize-form').click(function() {
-        $('.content form').toggle();
+    $('#minimize-form1').click(function() {
+        $('.content .form1').toggle();
+    });
+    $('#minimize-form2').click(function() {
+        $('.content .form2').toggle();
     });
     $('#minimize-table').click(function() {
         $('.content #DataTables_Table_0_wrapper').toggle();

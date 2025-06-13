@@ -6,6 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class App extends Model
 {
+
+    protected $fillable = [
+        'site_app',
+        'name_app',
+        'server_app',
+        'port_app',
+        'server_db_app',
+        'name_db_app',
+        'php_version_app',
+        'laravel_version_app',
+        'url_intranet',
+        'author_app',
+        'created_by',
+        'created_at',
+        'updated_at'
+    ];
+
     public static function listApps()
     {
         return self::get();

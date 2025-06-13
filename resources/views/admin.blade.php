@@ -5,10 +5,10 @@
 
     <div class="content-header">
         <h2>Cadastrar usuário</h2>
-        <i class="fa-solid fa-minus" id="minimize-form"></i>
+        <i class="fa-solid fa-minus" id="minimize-form1"></i>
     </div>
 
-    <form action="{{ route('createUser') }}" method="POST">
+    <form action="{{ route('createUser') }}" method="POST" class="form1">
         @csrf
 
         <div class="inpsel-container">

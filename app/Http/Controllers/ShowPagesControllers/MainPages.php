@@ -17,20 +17,26 @@ class MainPages extends Controller
 
     // HOME PAGE
     public function homePAGE()
-    {     
+    {
         $apps = App::listApps();
         return view('homepage', compact('apps'));
     }
 
     //
     public function registrationsPAGE()
-    {   
+    {
         $lastApp = App::lastApp();
         $lastServer = Server::lastServer();
         $countApps = App::countApps();
         $countServers = Server::countServers();
 
         return view('registrations', compact('lastApp', 'lastServer', 'countApps', 'countServers'));
+    }
+
+    // IMPORTATION PAGE
+    public function importationPAGE()
+    {
+        return view('importation');
     }
 
     // ADMIN PAGE
