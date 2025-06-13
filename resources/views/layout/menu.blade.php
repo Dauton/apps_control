@@ -3,7 +3,7 @@
 
     <i class="fa-solid fa-xmark" id="deactivate-menu"></i>
 
-    <img src="{{ asset('assets/img/id-logo-branco.png') }}" alt="logo">
+    <a href="{{ route('homepage') }}"><img src="{{ asset('assets/img/id-logo-branco.png') }}" alt="logo"></a>
 
     <ul>
         <li><a href="{{ route('homepage') }}"><i class="fa-solid fa-house"></i>Início</a></li>

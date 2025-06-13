@@ -18,7 +18,7 @@ class MainPages extends Controller
     // HOME PAGE
     public function homePAGE()
     {
-        $apps = App::listApps();
+        $apps = App::listLast10Apps();
         return view('homepage', compact('apps'));
     }
 
