@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserControllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogControllers\LogController;
 use App\Http\Services\Operations;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ class UserController extends Controller
             'created_at' => $created_at
         ]);
 
+        LogController::createLog('Criação', 'Sucesso', "Usuário '$username' cadastrado");
+
         return redirect()->route('admin')->with('alertSuccess', 'Usuário cadastrado com sucesso.');
     }
 
@@ -46,13 +49,18 @@ class UserController extends Controller
             'updated_at' => $updated_at
         ]);
 
+        LogController::createLog('Edição', 'Sucesso', "Usuário '$username' editado");
+
         return redirect()->route('admin')->with('alertSuccess', 'Usúario editado com sucesso.');
     }
     public function deleteUser($id)
     {
         $id = Operations::decryptID($id);
+        $username = User::select('username')->where('id', $id)->first();
 
         USer::where('id', $id)->delete();
+
+        LogController::createLog('Create', 'Sucesso', "Usuário '$username->username' excluído");
 
         return redirect()->route('admin')->with('alertSuccess', 'Usuário excluído com sucesso.');
     }

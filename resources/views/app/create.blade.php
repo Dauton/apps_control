@@ -168,6 +168,7 @@
     <table>
         <thead>
             <tr>
+                <td>ID</td>
                 <td>Site</td>
                 <td>Nome</td>
                 <td>Servidor</td>
@@ -186,6 +187,7 @@
         <tbody>
             @foreach($apps as $show)
             <tr>
+                <td>{{ $show->id }}</td>
                 <td>{{ $show->site_app }}</td>
                 <td>{{ $show->name_app }}</td>
                 <td>{{ $show->server_app }}</td>

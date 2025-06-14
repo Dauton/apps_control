@@ -1,9 +1,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de ferramentas</title>
-
+    <title>Controle de aplicações</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+
+    <meta name="description" content="Aplicação que controla as aplicações corporativas.">
+    <meta name="author" content="Dauton Pereira Félix, Analista de TI - 2025">
 
     <link href="{{ asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet" >
     <link href="{{ asset('assets/DataTables/css/datatables.min.css')  }}" rel="stylesheet">

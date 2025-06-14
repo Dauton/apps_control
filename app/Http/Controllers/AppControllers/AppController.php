@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AppControllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogControllers\LogController;
 use App\Http\Services\Operations;
 use App\Models\App;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class AppController extends Controller
         $author_app = $request->input('author_app');
         $created_by = session('user.name');
         $created_at = now();
-        
+
          // if null ou vazio, intranet_app = 'N/T'
         $url_intranet = Operations::ifNull($url_intranet);
 
@@ -45,6 +46,8 @@ class AppController extends Controller
             'created_by' => $created_by,
             'created_at' => $created_at
         ]);
+
+        LogController::createLog('Cadastro', 'Sucesso', "Aplicação '$name_app' cadastrada");
 
         return redirect()->route('create-app')->with('alertSuccess', 'Aplicação cadastrada com sucesso.');
     }
@@ -83,6 +86,8 @@ class AppController extends Controller
             'updated_at' => $updated_at
         ]);
 
+        LogController::createLog('Edição', 'Sucesso', "Aplicação '$name_app' editada");
+
         return redirect()->route('create-app')->with('alertSuccess', 'Aplicação editada com sucesso.');
 
     }
@@ -90,8 +95,11 @@ class AppController extends Controller
     public function deleteApp($id)
     {
         $id = Operations::decryptID($id);
+        $name_app = App::select('name_app')->where('id', $id)->first();
 
         App::where('id', $id)->delete();
+
+        LogController::createLog('Exclusão', 'Sucesso', "Aplicação '$name_app->name_app' excluída");
 
         return redirect()->route('create-app')->with('alertSuccess', 'Aplicação excluída com sucesso.');
     }

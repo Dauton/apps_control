@@ -1,6 +1,6 @@
 
 .menu {
-    min-width: 160px;
+    min-width: 180px;
     height: 100%;
     padding: 10px;
     background: linear-gradient( to top right, var(--azul-principal), var(--azul-secondary));

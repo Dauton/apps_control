@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AuthControllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogControllers\LogController;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -21,10 +22,12 @@ class AuthController extends Controller
         $error = redirect()->back()->withInput()->with('loginError', 'Credenciais inválidas.');
 
         if(!$searchUser) {
+            LogController::createLog('Login', 'Erro', "$username - Usuário não encontrado");
             return $error;
         }
 
         if(!password_verify($password, $searchUser->password)) {
+            LogController::createLog('Login', 'Erro', 'Senha incorreta');
             return $error;
         }
 
@@ -39,12 +42,17 @@ class AuthController extends Controller
         $searchUser->last_login = now();
         $searchUser->save();
 
+        LogController::createLog('Login', 'Sucesso', 'Login efetuado');
+
         return redirect(route('homepage'))->with('alertSuccess', 'Logado com sucesso.');
 
     }
 
     public function logout()
     {
+
+        LogController::createLog('Logout', 'Sucesso', 'Logout efetuado');
+
         session()->invalidate();
         session()->regenerate();
         session()->regenerateToken();

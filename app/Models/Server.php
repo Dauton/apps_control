@@ -38,7 +38,7 @@ class Server extends Model
 
     public static function lastServer()
     {
-        return self::select('ip_server', 'created_at')->orderBy('id', 'DESC')->first();
+        return self::select('ip_server', 'created_at')->first();
     }
 
     public static function countServers()

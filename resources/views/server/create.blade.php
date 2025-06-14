@@ -113,6 +113,7 @@
     <table>
         <thead>
             <tr>
+                <td>ID</td>
                 <td>Tipo</td>
                 <td>Nome</td>
                 <td>IP Address</td>
@@ -128,6 +129,7 @@
         <tbody>
             @foreach($servers as $show)
             <tr>
+                <td>{{ $show->id }}</td>
                 <td>{{ $show->type_server }}</td>
                 <td>{{ $show->name_server }}</td>
                 <td>{{ $show->ip_server }}</td>

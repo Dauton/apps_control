@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ServerControllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LogControllers\LogController;
 use App\Http\Services\Operations;
 use App\Models\Server;
 use Illuminate\Http\Request;
@@ -40,6 +41,8 @@ class ServerController extends Controller
             'created_at' => $created_at
         ]);
 
+        LogController::createLog('Criação', 'Sucesso', "Servidor '$ip_server' cadastrado");
+
         return redirect()->route('create-server')->with('alertSuccess', 'Servidor cadastrado com sucesso.');
 
     }
@@ -71,14 +74,19 @@ class ServerController extends Controller
             'updated_at' => $updated_at
         ]);
 
+        LogController::createLog('Edição', 'Sucesso', "Servidor '$ip_server' editado");
+
         return redirect()->route('create-server')->with('alertSuccess', 'Servidor editado com sucesso.');
     }
 
     public function deleteServer($id)
     {
         $id = Operations::decryptID($id);
+        $ip_server = Server::select('ip_server')->where('id', $id)->first();
 
         Server::where('id', $id)->delete();
+
+        LogController::createLog('Create', 'Sucesso', "Servidor '$ip_server->ip_server' excluído");
 
         return redirect()->route('create-server')->with('alertSuccess', 'Servidor excluído com sucesso.');
     }

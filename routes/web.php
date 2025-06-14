@@ -35,6 +35,7 @@ Route::middleware([NotLoggedIn::class])->group(function() {
         Route::get('/registrations', [MainPages::class, 'registrationsPAGE'])->name('registrations');
         Route::get('/importation', [MainPages::class, 'importationPAGE'])->name('importation');
         Route::get('/admin', [MainPages::class, 'adminPAGE'])->name('admin');
+        Route::get('/logs', [MainPages::class, 'logsPAGE'])->name('logs');
 
 
     // SHOW CRUDS PAGES

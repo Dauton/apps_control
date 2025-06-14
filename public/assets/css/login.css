@@ -12,7 +12,7 @@
 }
 
 #loginForm {
-    width: fit-content;
+    width: 450px;
     padding: 50px 50px 30px 50px;
     display: flex;
     flex-direction: column;

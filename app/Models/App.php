@@ -30,12 +30,12 @@ class App extends Model
 
     public static function listLast10Apps()
     {
-        return self::orderBy('id', 'DESC')->limit(10)->get();
+        return self::limit(10)->get();
     }
 
     public static function lastApp()
     {
-        return self::select('name_app', 'created_at')->orderBy('id', 'DESC')->first();
+        return self::select('name_app', 'created_at')->first();
     }
 
     public static function countApps()

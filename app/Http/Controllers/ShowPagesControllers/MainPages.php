@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ShowPagesControllers;
 use App\Http\Controllers\Controller;
 use App\Models\App;
+use App\Models\Logs;
 use App\Models\Server;
 use App\Models\User;
 
@@ -45,5 +46,13 @@ class MainPages extends Controller
         $listUsers = User::listUsers();
 
         return view('admin', compact('listUsers'));
+    }
+
+    // LOGS PAGE
+    public function logsPAGE()
+    {
+        $logs = Logs::listLogs();
+
+        return view('logs', compact('logs'));
     }
 }
