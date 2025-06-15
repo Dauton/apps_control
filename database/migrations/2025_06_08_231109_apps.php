@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('author_app', 150);
             $table->string('created_by', 150)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

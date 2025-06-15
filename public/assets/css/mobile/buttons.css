@@ -1,0 +1,7 @@
+@media screen and (width <= 720px) {
+
+    .buttons-container {
+        flex-basis: 0;
+    }
+
+}

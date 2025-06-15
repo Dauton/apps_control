@@ -1,0 +1,10 @@
+@media screen and (width <= 720px) {
+
+    .show-alert {
+        width: 100%;
+        top: 50px;
+        left: 0;
+        border-radius: 0;
+    }
+
+}

@@ -36,6 +36,10 @@
     color: #f1f1f1;
 }
 
+#loginForm .buttons-container {
+    flex-basis: 0%;
+}
+
 .login-rodape {
     width: 100%;
     padding: 10px;

@@ -1,12 +1,14 @@
 .buttons-container {
-    width: 100%;
     padding: 10px 0;
     display: flex;
+    flex-basis: 100%;
     justify-content: left;
     gap: 10px;
 }
 
 .buttons-container a {
+    display: flex;
+    flex-basis: 0;
     margin: 0;
 }
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\ImportsControllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ImportsControllers\Validations;
-use App\Http\Controllers\LogControllers\LogController;
 use App\Imports\ImportExcelApp;
 use App\Imports\ImportExcelServer;
 use Illuminate\Http\Request;
@@ -21,9 +20,7 @@ class ImportExcelController extends Controller
 
         Excel::import(new ImportExcelApp, $file);
 
-        LogController::createLog('Importação', 'Sucesso', 'Aplicações importadas');
-
-        return redirect()->route('importation')->with('alertSuccess', 'Aplicações importadas com sucesso.');
+        return redirect()->route('importation')->with('alertSuccess', 'Aplicações importadas como sucesso.');
     }
 
     public function importServer(Request $request)
@@ -35,8 +32,6 @@ class ImportExcelController extends Controller
 
         Excel::import(new ImportExcelServer, $file);
 
-        LogController::createLog('Importação', 'Sucesso', 'Servidores importados');
-
-        return redirect()->route('importation')->with('alertSuccess', 'Servidores importadas com sucesso.');
+        return redirect()->route('importation')->with('alertSuccess', 'Servidores importadas como sucesso.');
     }
 }

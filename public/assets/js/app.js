@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
 
 
-    // MENSAGEM DE ALERTA SOME APÓS 5 SEGUNDOS
+    // MENSAGEM DE ALERTA SOME APÓS 3 SEGUNDOS
     setTimeout(() => {
         let p = document.getElementById("show-alert");
         p.style.opacity = "0";
@@ -80,13 +80,37 @@ $(document).ready(function () {
 
 
     // EXIBIR MENU LATERAL MOBILE
-    $('#active-menu').click(function() {
+    $('#active-menu-mobile').click(function() {
         $('.back-menu').fadeToggle(100);
         $('.menu').slideDown(200);
     })
     $('#deactivate-menu, .back-menu').click(function() {
         $('.back-menu').fadeToggle(200);
         $('.menu').slideUp(100);
-    })
+    });
+
+
+    // ESCONDER/EXIBIR MENU LATERAL
+    let fechado = false;
+
+    $('#active-menu').click(function() {
+        if (!fechado) {
+            $('.menu').css({
+            'width': 0,
+            'min-width': 0,
+            'padding': '10px 0',
+            'transition': '.1s ease-out'
+            });
+        } else {
+            $('.menu').css({
+            'width': '170px',
+            'min-width': '170px',
+            'padding': '10px 10px',
+            'transition': '.1s ease-out'
+            });
+        }
+        fechado = !fechado;
+    });
+
 
 });

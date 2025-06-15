@@ -6,7 +6,7 @@
     @include('layout.head')
 
 <body>
-    <main class="main">    
+    <main class="main">
 
         @if (Request::path() != 'admin/login')
             @include('layout.menu')
@@ -15,7 +15,7 @@
         <section class="center">
 
             @include('layout.main-header')
-            
+
             <article class="container-content">
                 @yield('content')
             </article>
@@ -25,7 +25,7 @@
         </section>
 
     </main>
-    
+
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/DataTables/js/datatables.min.js') }}"></script>
     <script src="{{ asset('assets/DataTables/js/jszip.min.js') }}"></script>

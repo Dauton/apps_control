@@ -1,12 +1,14 @@
 
 .menu {
-    min-width: 180px;
+    width: 170px;
+    min-width: 170px;
     height: 100%;
     padding: 10px;
     background: linear-gradient( to top right, var(--azul-principal), var(--azul-secondary));
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .menu img {
@@ -16,6 +18,7 @@
 
 .menu ul {
     width: 100%;
+    min-width: 150px;
     list-style: none;
 }
 .menu ul li {

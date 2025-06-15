@@ -4,7 +4,7 @@
         justify-content: space-between;
     }
     .main-header .welcome {
-        display:  none;
+        font-size: 11px;
     }
     .main-header .active-user-area {
         width: fit-content;
@@ -17,6 +17,9 @@
     }
 
     #active-menu {
+        display: none;
+    }
+    #active-menu-mobile {
         display: block;
         margin: 0 0 0 20px;
         font-size: 25px;

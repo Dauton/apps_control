@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('laravel_version_server', 45)->nullable();
             $table->string('created_by', 150);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
