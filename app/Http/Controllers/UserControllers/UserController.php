@@ -21,7 +21,7 @@ class UserController extends Controller
         $created_by = session('user.name');
         $created_at = now();
 
-        User::insert([
+        User::create([
             'name' => Str::upper(trim($name)),
             'username' => Str::upper(trim($username)),
             'password' => password_hash(trim($password), PASSWORD_ARGON2ID),

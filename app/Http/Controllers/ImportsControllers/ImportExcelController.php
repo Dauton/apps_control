@@ -32,6 +32,6 @@ class ImportExcelController extends Controller
 
         Excel::import(new ImportExcelServer, $file);
 
-        return redirect()->route('importation')->with('alertSuccess', 'Servidores importadas como sucesso.');
+        return redirect()->route('importation')->with('alertSuccess', 'Servidores importados como sucesso.');
     }
 }

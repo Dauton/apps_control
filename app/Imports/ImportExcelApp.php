@@ -18,7 +18,7 @@ class ImportExcelApp implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new App([
-            'site_app' => empty(Str::upper(trim($row['site_app']))),
+            'site_app' => Str::upper(trim($row['site_app'])),
             'name_app' => Str::upper(trim($row['name_app'])),
             'server_app' => trim($row['server_app']),
             'port_app' => trim($row['port_app']),

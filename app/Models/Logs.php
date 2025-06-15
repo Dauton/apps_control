@@ -10,8 +10,7 @@ class Logs extends Model
         'type',
         'result',
         'description',
-        'by',
-        'created_at'
+        'by'
     ];
 
     public static function listLogs()

@@ -20,9 +20,7 @@ class App extends Model
         'laravel_version_app',
         'url_intranet',
         'author_app',
-        'created_by',
-        'created_at',
-        'updated_at'
+        'created_by'
     ];
 
     public static function listApps()
@@ -37,7 +35,7 @@ class App extends Model
 
     public static function lastApp()
     {
-        return self::select('name_app', 'created_at')->first();
+        return self::select('name_app', 'created_at')->orderBy('id', 'DESC')->first();
     }
 
     public static function countApps()

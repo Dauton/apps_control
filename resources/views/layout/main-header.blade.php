@@ -1,6 +1,6 @@
 <header class="main-header">
 
-    <i class="fa-solid fa-bars" id="active-menu"></i>
+    <i class="fa-solid fa-angles-left" id="active-menu"></i>
     <i class="fa-solid fa-bars" id="active-menu-mobile"></i>
 
     <div class="welcome">

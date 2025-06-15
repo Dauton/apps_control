@@ -6,7 +6,7 @@ $(document).ready(function () {
             url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
         },
 
-        dom: 'Bfrtip',
+        dom: 'Blfrtip',
         buttons: [
             {
                 extend: 'excelHtml5',
@@ -79,6 +79,37 @@ $(document).ready(function () {
     });
 
 
+    // ESCONDER/EXIBIR MENU LATERAL
+    let fechado = false;
+
+    $('#active-menu').click(function() {
+        if (!fechado) {
+            $('.menu').css({
+                'width': 0,
+                'min-width': 0,
+                'padding': '10px 0',
+                'transition': '.1s ease-out'
+            });
+            $('#active-menu').css({
+                'transform': 'rotate(180deg)',
+                'transition': '.1s ease-out'
+            });
+        } else {
+            $('.menu').css({
+                'width': '170px',
+                'min-width': '170px',
+                'padding': '10px 10px',
+                'transition': '.1s ease-out'
+            });
+            $('#active-menu').css({
+                'transform': 'rotate(0deg)',
+                'transition': '.1s ease-out'
+            });
+        }
+        fechado = !fechado;
+    });
+
+
     // EXIBIR MENU LATERAL MOBILE
     $('#active-menu-mobile').click(function() {
         $('.back-menu').fadeToggle(100);
@@ -88,29 +119,4 @@ $(document).ready(function () {
         $('.back-menu').fadeToggle(200);
         $('.menu').slideUp(100);
     });
-
-
-    // ESCONDER/EXIBIR MENU LATERAL
-    let fechado = false;
-
-    $('#active-menu').click(function() {
-        if (!fechado) {
-            $('.menu').css({
-            'width': 0,
-            'min-width': 0,
-            'padding': '10px 0',
-            'transition': '.1s ease-out'
-            });
-        } else {
-            $('.menu').css({
-            'width': '170px',
-            'min-width': '170px',
-            'padding': '10px 10px',
-            'transition': '.1s ease-out'
-            });
-        }
-        fechado = !fechado;
-    });
-
-
 });

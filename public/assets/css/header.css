@@ -84,9 +84,9 @@
 #active-menu {
     padding: 20px;
     color: #707070;
-    font-size: 15px;
+    font-size: 13px;
     cursor: pointer;
-    border-right: 1px solid #aaa;
+    border: 1px solid #aaa;
 }
 #active-menu:hover {
     background: #aaa;

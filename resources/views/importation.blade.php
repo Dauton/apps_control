@@ -49,7 +49,7 @@
     <form action="{{ route('importServer') }}" method="POST" class="form2" enctype="multipart/form-data" id="import-server">
         @csrf
 
-        <a href="{{ route('download', 'import_model_model.xlsx') }}">
+        <a href="{{ route('download', 'import_server_model.xlsx') }}">
             <button type="button"><i class="fa-solid fa-download"></i>Modelo aceitável para servidores</button>
         </a>
 

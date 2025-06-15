@@ -17,9 +17,7 @@ class Server extends Model
         'os_version_server',
         'php_version_server',
         'laravel_version_server',
-        'created_by',
-        'created_at',
-        'updated_at'
+        'created_by'
     ];
 
     public static function listServers()
@@ -40,7 +38,7 @@ class Server extends Model
 
     public static function lastServer()
     {
-        return self::select('ip_server', 'created_at')->first();
+        return self::select('ip_server', 'created_at')->orderBy('id', 'DESC')->first();
     }
 
     public static function countServers()

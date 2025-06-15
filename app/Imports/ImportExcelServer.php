@@ -18,7 +18,7 @@ class ImportExcelServer implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Server([
-            'type_server' => empty(Str::upper(trim($row['type_server']))),
+            'type_server' => Str::upper(trim($row['type_server'])),
             'name_server' => Str::upper(trim($row['name_server'])),
             'ip_server' => trim($row['ip_server']),
             'os_server' => Str::upper(trim($row['os_server'])),

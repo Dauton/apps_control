@@ -35,29 +35,23 @@ table i:hover {
     color: var(--azul-principal);
 }
 
-.dt-length,
-.dt-search,
-.dt-info,
-.dt-buttons,
-.dt-paging {
-    width: 50%;
-    font-size: 13px !important;
-}
-
-.dt-input {
-    font-size: 13px !important;
-}
-
 .dt-container {
     display: flex;
     flex-wrap: wrap;
 }
 
+.dt-length,
 .dt-search,
-.dt-paging {
-    display: flex;
-    align-items: center;
-    justify-content: right;
+.dt-info,
+.dt-buttons,
+.dt-paging,
+.dt-inpu {
+    font-size: 13px !important;
+}
+
+.dt-buttons {
+    flex-basis: 100%;
+    margin: 0 0 15px 0;
 }
 
 .buttons-excel {
@@ -71,4 +65,9 @@ table i:hover {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.dt-empty-footer {
+    display: flex;
+    justify-content: space-between;
 }
