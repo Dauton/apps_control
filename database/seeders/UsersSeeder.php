@@ -14,10 +14,10 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
 
-        $name = 'Developer';
-        $username = 'dev';
+        $name = 'DEVELOPER';
+        $username = 'DEV';
         $password = 'd3v3l0p3r';
-        $created_by = 'Seeder';
+        $created_by = 'SEEDER';
         $created_at = now();
 
         User::create([

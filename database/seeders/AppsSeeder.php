@@ -23,8 +23,8 @@ class AppsSeeder extends Seeder
         $php_version_app = '8.4';
         $laravel_version_app = '12';
         $url_intranet = 'https://intranet.app.com.br'; // if null, url_intranet = 'NÃO'
-        $author_app = 'Developer';
-        $created_by = 'Seeder'; // session('user.username');
+        $author_app = 'DEVELOPER';
+        $created_by = 'SEEDER'; // session('user.username');
         $created_at = now();
 
         $url_intranet = Operations::ifNull($url_intranet);

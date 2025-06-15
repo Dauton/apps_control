@@ -1,6 +1,5 @@
 table {
-    margin: 10px 0 !important;
-    text-align: center !important;
+    background: #fff;
 }
 table thead tr {
     background: linear-gradient(to right top, var(--verde-secondary), var(--verde-principal));
@@ -35,9 +34,14 @@ table i:hover {
     color: var(--azul-principal);
 }
 
+table .fa-link {
+    font-size: 15px;
+}
+
 .dt-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .dt-length,
@@ -51,7 +55,6 @@ table i:hover {
 
 .dt-buttons {
     flex-basis: 100%;
-    margin: 0 0 15px 0;
 }
 
 .buttons-excel {

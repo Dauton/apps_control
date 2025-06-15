@@ -31,11 +31,6 @@
     width: 100% !important;
 }
 
-#loginForm .inpsel-container div i {
-    background: linear-gradient(to right top, var(--azul-principal), var(--azul-secondary));
-    color: #f1f1f1;
-}
-
 #loginForm .buttons-container {
     flex-basis: 0%;
 }

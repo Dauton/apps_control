@@ -119,4 +119,16 @@ $(document).ready(function () {
         $('.back-menu').fadeToggle(200);
         $('.menu').slideUp(100);
     });
+
+
+    // EXIBIR/ESCONDER SENHA
+    $('#show-password').click(function() {
+        $('#password').attr('type', 'text');
+        $('#show-password, #hide-password').fadeToggle(0);
+    });
+    $('#hide-password').click(function() {
+        $('#password').attr('type', 'password');
+        $('#hide-password, #show-password').fadeToggle(0);
+    });
+    
 });

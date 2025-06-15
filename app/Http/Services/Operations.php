@@ -21,10 +21,7 @@ class Operations
 
     public static function ifNull($value)
     {
-        if(empty($value)) {
-            $value = 'N/T';
-        }
-        return $value;
+        return !empty($value) ? $value : 'N/T';
     }
 
     public static function formatDate($date)

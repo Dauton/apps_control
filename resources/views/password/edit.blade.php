@@ -15,6 +15,8 @@
             <div>
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="password" id="password" placeholder="Informe a nova senha" value="{{ old('password') }}">
+                <i class="fa-solid fa-eye" id="show-password"></i>
+                <i class="fa-solid fa-eye-slash" id="hide-password"></i>
             </div>
             @error('password')
             <p id="input-error">{{ $message }}</p>

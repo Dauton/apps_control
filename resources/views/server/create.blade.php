@@ -113,23 +113,21 @@
     <table>
         <thead>
             <tr>
-                <td>ID</td>
                 <td>Tipo</td>
                 <td>Nome</td>
                 <td>IP Address</td>
                 <td>S.O</td>
                 <td>Versão S.O</td>
-                <td>Versão PHP</td>
-                <td>Versão Laravel</td>
-                <td>Cadastrado por</td>
-                <td>Data cadastro</td>
+                <td>PHP</td>
+                <td>Laravel</td>
+                <td>Cadas. por</td>
+                <td>Data cadas.</td>
                 <td>Editar</td>
             </tr>
         </thead>
         <tbody>
             @foreach($servers as $show)
             <tr>
-                <td>{{ $show->id }}</td>
                 <td>{{ $show->type_server }}</td>
                 <td>{{ $show->name_server }}</td>
                 <td>{{ $show->ip_server }}</td>

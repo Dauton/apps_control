@@ -16,20 +16,21 @@ class ServerController extends Controller
 
         Validations::serverValidations($request, );
 
-        $type_server = $request->input('type_server');
-        $name_server = $request->input('name_server');
-        $ip_server = $request->input('ip_server');
-        $os_server = $request->input('os_server');
-        $os_version_server = $request->input('os_version_server');
+        $type_server = $request->input('type_server'); // Obrigatório
+        $name_server = $request->input('name_server'); // Obrigatório
+        $ip_server = $request->input('ip_server'); // Obrigatório
+        $os_server = $request->input('os_server'); // Obrigatório
+        $os_version_server = $request->input('os_version_server'); // Obrigatório
         $php_version_server = $request->input('php_version_server');
         $laravel_version_server = $request->input('laravel_version_server');
         $created_by = session('user.name');
         $created_at = now();
 
+         // if valor = null ou vazio, valor = 'N/T'
         $php_version_server = Operations::ifNull($php_version_server);
         $laravel_version_server = Operations::ifNull($laravel_version_server);
 
-        Server::insert([
+        Server::create([
             'type_server' => trim(Str::upper($type_server)),
             'name_server' => trim(Str::upper($name_server)),
             'ip_server' => trim($ip_server),

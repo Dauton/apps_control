@@ -56,8 +56,31 @@ form .inpsel-container input:focus {
     outline: none;
 }
 
+form .inpsel-container #password {
+    border-radius: 0;
+}
+form .inpsel-container #show-password,
+form .inpsel-container #hide-password {
+    border-left: 0;
+    border-right: 1px solid #aaa;
+    border-radius: 0 3px 3px 0;
+    background: #f1f1f1;
+    color: #444;
+    cursor: pointer;
+}
+
+form .inpsel-container #show-password:hover,
+form .inpsel-container #hide-password:hover {
+    background: #aaa;
+}
+
+form .inpsel-container #hide-password {
+    display: none;
+}
+
 form .inpsel-container i {
     width: 40px;
+    min-width: 40px;
     height: 37px;
     padding: 9px;
     border: 1px solid #aaa;

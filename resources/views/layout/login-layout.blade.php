@@ -5,10 +5,13 @@
 
 <body>
     <main class="login-main">
-        
+
         @yield('formulary')
 
     </main>
+
+    @include('layout.scripts')
+
 </body>
 
 </html>

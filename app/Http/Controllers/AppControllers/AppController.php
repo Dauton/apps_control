@@ -16,23 +16,27 @@ class AppController extends Controller
 
         Validations::validationsApp($request);
 
-        $site_app = $request->input('site_app');
-        $name_app = $request->input('name_app');
-        $server_app = $request->input('server_app');
-        $port_app = $request->input('port_app');
+        $site_app = $request->input('site_app'); // Obrigatório
+        $name_app = $request->input('name_app'); // Obrigatório
+        $server_app = $request->input('server_app'); // Obrigatório
+        $port_app = $request->input('port_app'); // Obrigatório
         $server_db_app = $request->input('server_db_app');
         $name_db_app = $request->input('name_db_app');
         $php_version_app = $request->input('php_version_app');
         $laravel_version_app = $request->input('laravel_version_app');
-        $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'N/T'
-        $author_app = $request->input('author_app');
+        $url_intranet = $request->input('url_intranet');
+        $author_app = $request->input('author_app'); // Obrigatório
         $created_by = session('user.name');
         $created_at = now();
 
-         // if null ou vazio, intranet_app = 'N/T'
+         // if valor = null ou vazio, valor = 'N/T'
+        $server_db_app = Operations::ifNull($server_db_app);
+        $name_db_app = Operations::ifNull($name_db_app);
+        $php_version_app = Operations::ifNull($php_version_app);
+        $laravel_version_app = Operations::ifNull($laravel_version_app);
         $url_intranet = Operations::ifNull($url_intranet);
 
-        App::insert([
+        App::create([
             'site_app' => trim(Str::upper($site_app)),
             'name_app' => trim(Str::upper($name_app)),
             'server_app' => trim($server_app),
