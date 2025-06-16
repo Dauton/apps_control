@@ -15,9 +15,30 @@
         </div>
         <nav class="options-user-area">
             <ul>
-                <li><a href="{{ route('edit-password', Crypt::encrypt(session('user.id')))}}"><i class="fa-solid fa-lock"></i>Minha senha<i class="fa-solid fa-angle-right"></i></a></li>
-                <li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i>Sair<i class="fa-solid fa-angle-right"></i></a></li>
+                <li><a href="{{ route('edit-password', Crypt::encrypt(session('user.id'))) }}"><i
+                            class="fa-solid fa-lock"></i>Minha senha<i class="fa-solid fa-angle-right"></i></a></li>
+                <li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i>Sair<i
+                            class="fa-solid fa-angle-right"></i></a></li>
             </ul>
+
+            <div class="themes-container">
+                @if (session('user.theme_preference') === 'DARK')
+                    <form action="{{ route('changeTheme', Crypt::encrypt(session('user.id'))) }}" method="POST"
+                        id="form-light">
+                        @csrf
+                        <input type="hidden" name="theme_preference" id="theme_preference" value="LIGHT">
+                        <button type="submit" form="form-light"><i class="fa-regular fa-sun"></i></button>
+                    </form>
+                @endif
+                @if (session('user.theme_preference') === 'LIGHT')
+                    <form action="{{ route('changeTheme', Crypt::encrypt(session('user.id'))) }}" method="POST"
+                        id="form-dark">
+                        @csrf
+                        <input type="hidden" name="theme_preference" id="theme_preference" value="DARK">
+                        <button type="submit" form="form-dark"><i class="fa-regular fa-moon"></i></button>
+                    </form>
+                @endif
+            </div>
         </nav>
     </div>
 </header>

@@ -35,7 +35,8 @@ class AuthController extends Controller
             'user' => [
                 'id' => $searchUser->id,
                 'name' => $searchUser->name,
-                'username' => $searchUser->username
+                'username' => $searchUser->username,
+                'theme_preference' => $searchUser->theme_preference
             ]
         ]);
 
@@ -44,7 +45,7 @@ class AuthController extends Controller
 
         LogController::createLog('Login', 'Sucesso', 'Login efetuado');
 
-        return redirect(route('homepage'))->with('alertSuccess', 'Logado com sucesso.');
+        return redirect()->route('homepage')->with('alertSuccess', 'Logado com sucesso.');
 
     }
 

@@ -77,6 +77,27 @@
     background: #f1f1f1;
 }
 
+.main-header .options-user-area .themes-container {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+}
+.main-header .options-user-area .themes-container form {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-header .options-user-area .themes-container form button {
+    width: fit-content;
+    min-width: 0;
+    margin: 3px;
+    font-size: 17px;
+    font-size: 13px;
+}
+
 #active-menu-mobile {
     display: none;
 }

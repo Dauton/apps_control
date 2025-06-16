@@ -10,6 +10,7 @@ class User extends Model
         'name',
         'username',
         'passsword',
+        'theme_preference',
         'last_login',
     ];
 

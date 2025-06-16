@@ -1,0 +1,11 @@
+.menu {
+    background: var(--dark-secondary);
+    border-right: 1px solid #38384d
+}
+
+.menu ul li a {
+    color: var(--text-color);
+}
+.menu ul li a:hover {
+    background: var(--dark-principal);
+}

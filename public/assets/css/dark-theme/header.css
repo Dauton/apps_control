@@ -1,0 +1,34 @@
+.main-header {
+    background: var(--dark-secondary);
+    border-bottom: 1px solid #38384d
+}
+
+.main-header .welcome {
+    color: var(--text-color);
+}
+
+.main-header .active-user-area {
+    background: var(--dark-principal);
+    border-left: 1px solid #38384d;
+    color: var(--text-color);
+}
+
+.main-header .options-user-area {
+    background: var(--dark-secondary);
+    border: 1px solid #38384d;
+}
+.main-header .options-user-area ul li a {
+    color: var(--text-color);
+}
+.main-header .options-user-area ul li a:hover {
+    background: var(--dark-principal);
+}
+
+#active-menu {
+    border: 0;
+    border-right: 1px solid #38384d;
+    color: var(--text-color);
+}
+#active-menu:hover {
+    background: var(--dark-principal);
+}

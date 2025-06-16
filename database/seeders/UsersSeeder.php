@@ -17,6 +17,7 @@ class UsersSeeder extends Seeder
         $name = 'DEVELOPER';
         $username = 'DEV';
         $password = 'd3v3l0p3r';
+        $theme_preference = 'LIGHT'; // or DARK
         $created_by = 'SEEDER';
         $created_at = now();
 
@@ -24,6 +25,7 @@ class UsersSeeder extends Seeder
             'name' => trim(Str::upper($name)),
             'username' => trim(Str::upper($username)),
             'password' => trim(password_hash($password, PASSWORD_ARGON2ID)),
+            'theme_preference' => trim(Str::upper($theme_preference)),
             'created_by' => trim(Str::upper($created_by)),
             'created_at' => $created_at
         ]);

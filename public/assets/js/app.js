@@ -46,11 +46,11 @@ $(document).ready(function () {
     // DROP DOWN DA ÁREA DO USUÁRIO NO CABEÇALHO
     $(".container-user-area").hover(
         function() {
-            $(".options-user-area").slideDown(100);
+            $(".options-user-area").slideDown(0);
             $(".fa-caret-down").css({"transform": "rotate(180deg)"});
         },
         function() {
-            $(".options-user-area").slideUp(100);
+            $(".options-user-area").slideUp(0);
             $(".active-user-area .fa-caret-down").css({"transform": "rotate(0deg)"});
         }
     );
@@ -80,10 +80,10 @@ $(document).ready(function () {
 
 
     // ESCONDER/EXIBIR MENU LATERAL
-    let fechado = false;
+    let close = false;
 
     $('#active-menu').click(function() {
-        if (!fechado) {
+        if (!close) {
             $('.menu').css({
                 'width': 0,
                 'min-width': 0,
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 'transition': '.1s ease-out'
             });
         }
-        fechado = !fechado;
+        close = !close;
     });
 
 
@@ -130,5 +130,5 @@ $(document).ready(function () {
         $('#password').attr('type', 'password');
         $('#hide-password, #show-password').fadeToggle(0);
     });
-    
+
 });

@@ -14,6 +14,7 @@ use App\Http\Controllers\UserControllers\UserController;
 use App\Http\Middleware\IsLoggedIn;
 use App\Http\Middleware\NotLoggedIn;
 use App\Imports\ImportApp;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([IsLoggedIn::class])->group(function() {
@@ -64,6 +65,7 @@ Route::middleware([NotLoggedIn::class])->group(function() {
         Route::post('/createUser', [UserController::class, 'createUser'])->name('createUser');
         Route::post('/editUser/{id}', [UserController::class, 'editUser'])->name('editUser');
         Route::get('/deleteUser/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+        Route::post('changeTheme/{id}', [UserController::class, 'changeTheme'])->name('changeTheme');
 
         // APP
         Route::post('/createApp', [AppController::class, 'createApp'])->name('createApp');

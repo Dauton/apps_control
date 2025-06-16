@@ -19,7 +19,7 @@
                     <option value="">Utilização do servidor</option>
                     <option value="APLICAÇÕES" {{ old('type_server') == 'APLICAÇÕES' ? 'selected' : '' }}>APLICAÇÕES</option>
                     <option value="BANCO DE DADOS" {{ old('type_server') == 'BANCO DE DADOS' ? 'selected' : '' }}>BANCO DE DADOS</option>
-                    <option value="BANCO DE DADOS" {{ old('type_server') == 'BANCO DE DADOS' ? 'selected' : '' }}>APLICAÇÕES E BANCO DE DADOS</option>
+                    <option value="APLICAÇÕES BANCO DE DADOS" {{ old('type_server') == 'BANCO DE DADOS' ? 'selected' : '' }}>APLICAÇÕES E BANCO DE DADOS</option>
                 </select>
             </div>
             @error('type_server')

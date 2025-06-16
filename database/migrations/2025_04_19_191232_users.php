@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('username', 150)->nullable();
             $table->string('password', 256)->nullable();
             $table->datetime('last_login')->nullable();
+            $table->string('theme_preference')->nullable();
             $table->string('created_by', 150)->nullable();
             $table->timestamps();
         });

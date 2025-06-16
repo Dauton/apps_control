@@ -4,7 +4,7 @@
 <section class="content">
 
     <div class="content-header">
-        <h2>Cadastrar servidor</h2>
+        <h2>Editar servidor</h2>
         <i class="fa-solid fa-minus" id="minimize-form1"></i>
     </div>
 
@@ -19,7 +19,7 @@
                     <option value="{{ $server->type_server }}">{{ $server->type_server }}</option>
                     <option value="APLICAÇÕES" {{ old('type_server') == 'APLICAÇÕES' ? 'selected' : '' }}>APLICAÇÕES</option>
                     <option value="BANCO DE DADOS" {{ old('type_server') == 'BANCO DE DADOS' ? 'selected' : '' }}>BANCO DE DADOS</option>
-                    <option value="BANCO DE DADOS" {{ old('type_server') == 'BANCO DE DADOS' ? 'selected' : '' }}>APLICAÇÕES E BANCO DE DADOS</option>
+                    <option value="APLICAÇÕES E BANCO DE DADOS" {{ old('type_server') == 'BANCO DE DADOS' ? 'selected' : '' }}>APLICAÇÕES E BANCO DE DADOS</option>
                 </select>
             </div>
             @error('author_app')
@@ -94,7 +94,7 @@
         </div>
 
         <div class="buttons-container">
-            <button type="submit">Cadastrar</button>
+            <button type="submit">Submeter</button>
             <a href="{{ route('create-server') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
             <button type="button" id="btn-delete">Excluir</button>
         </div>

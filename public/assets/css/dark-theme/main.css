@@ -1,0 +1,26 @@
+@import url(menu.css);
+@import url(header.css);
+@import url(table.css);
+@import url(forms.css);
+@import url(select2.css);
+@import url(buttons.css);
+
+:root {
+    --dark-principal: #000;
+    --dark-secondary: #16161d;
+    --text-color: #72729b;
+}
+
+.main {
+    background: var(--dark-principal) !important;
+}
+
+.content {
+    background: var(--dark-secondary) !important;
+    color: var(--text-color);
+    border: 1px solid #38384d
+}
+
+.content-header .fa-minus {
+    color: var(--text-color) !important;
+}

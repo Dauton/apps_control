@@ -18,6 +18,7 @@ class UserController extends Controller
         $name = $request->input('name');
         $username = $request->input('username');
         $password = $request->input('password');
+        $theme_preference = 'LIGHT';
         $created_by = session('user.name');
         $created_at = now();
 
@@ -25,6 +26,7 @@ class UserController extends Controller
             'name' => Str::upper(trim($name)),
             'username' => Str::upper(trim($username)),
             'password' => password_hash(trim($password), PASSWORD_ARGON2ID),
+            'theme_preference' => $theme_preference,
             'created_by' => $created_by,
             'created_at' => $created_at
         ]);
@@ -63,5 +65,32 @@ class UserController extends Controller
         LogController::createLog('Create', 'Sucesso', "Usuário '$username->username' excluído");
 
         return redirect()->route('admin')->with('alertSuccess', 'Usuário excluído com sucesso.');
+    }
+
+    public function changeTheme(Request $request, $id)
+    {
+        $theme_preference = $request->input('theme_preference');
+        $id = Operations::decryptID($id);
+
+        User::where('id', $id)->update([
+            'theme_preference' => $theme_preference
+        ]);
+
+        $searchUser = User::where('id', $id)->first();
+
+        session()->invalidate();
+        session()->regenerate();
+        session()->regenerateToken();
+        session([
+            'user' => [
+                'id' => $searchUser->id,
+                'name' => $searchUser->name,
+                'username' => $searchUser->username,
+                'theme_preference' => $searchUser->theme_preference
+            ]
+        ]);
+
+        return redirect()->back()->with('alertSuccess', 'Tema alterado com sucesso.');
+
     }
 }
