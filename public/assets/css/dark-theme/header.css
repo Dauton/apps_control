@@ -23,7 +23,9 @@
 .main-header .options-user-area ul li a:hover {
     background: var(--dark-principal);
 }
-
+.main-header .options-user-area .themes-container {
+    border-bottom: 1px solid #38384d    ;
+}
 #active-menu {
     border: 0;
     border-right: 1px solid #38384d;

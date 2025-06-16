@@ -57,6 +57,14 @@ table .fa-link {
     flex-basis: 100%;
 }
 
+.dt-paging-button.current {
+    background: var(--verde-secondary) !important;
+}
+.dt-paging-button:hover,
+.dt-paging-button.current:hover {
+    background: var(--verde-principal) !important;
+}
+
 .buttons-excel {
     background: #217346;
 }
