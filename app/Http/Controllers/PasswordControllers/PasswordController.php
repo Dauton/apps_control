@@ -22,15 +22,14 @@ class PasswordController extends Controller
             ]
         );
 
-        $alertSucces = 'Senha alterada com sucesso.';
-        $redirect = redirect()->route('homepage')->with('alertSuccess', $alertSucces);
-
         if($id == session('user.id')) {
-
             LogController::createLog('Senha', 'Sucesso', 'Alterou a própria senha');
-            return $redirect;
-        
+            return redirect()->route('homepage')->with('alertSuccess', 'Senha alterada com sucesso.');
         }
+
+        $username = User::select('username')->where('id', $id)->first();
+        LogController::createLog('Senha', 'Sucesso', "Alterou a senha do usuário '$username->username'");
+        return redirect()->back()->with('alertSuccess', 'Senha do usuário alterada com sucesso.');
     }
 
 }

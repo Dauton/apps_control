@@ -67,6 +67,7 @@ table .fa-link {
 
 .buttons-excel {
     background: #217346;
+    border: 1px solid #164d2f;
 }
 
 .buttons-excel:hover {
