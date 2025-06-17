@@ -20,7 +20,7 @@ class SapiensConnection extends Controller
     }
 
     // LISTAGEM DE COLABORADORES VIA SAPIENS
-    public static function listCollaborator()
+    public static function listCollaborators()
     {
         // usu_nomfun = nome
         // usu_tcadfun = tabela

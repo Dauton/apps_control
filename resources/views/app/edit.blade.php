@@ -48,7 +48,9 @@
                 <i class="fa-solid fa-server"></i>
                 <select name="server_app" id="server_app">
                     <option value="{{ $app->server_app }}">{{ $app->server_app }}</option>
-                    <option value="10.10.10.100" {{ old('server_app') == '10.10.10.100' ? 'selected' : '' }}>10.10.10.100</option>
+                    @foreach ($apps_servers as $server)
+                        <option value="{{ $server->ip_server }}" {{ old('server_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('server_app')
@@ -73,7 +75,9 @@
                 <i class="fa-solid fa-server"></i>
                 <select name="server_db_app" id="server_db_app">
                     <option value="{{ $app->server_db_app }}">{{ $app->server_db_app }}</option>
-                    <option value="10.10.10.200" {{ old('server_db_app') == '10.10.10.200' ? 'selected' : '' }}>10.10.10.200</option>
+                    @foreach ($db_servers as $server)
+                        <option value="{{ $server->ip_server }}" {{ old('server_db_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
+                    @endforeach
                 </select>
             </div>
             @error('server_db_app')

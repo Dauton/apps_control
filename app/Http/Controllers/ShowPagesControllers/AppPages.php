@@ -14,7 +14,7 @@ class AppPages extends Controller
     {
         $apps = App::listApps();
         $sites = SapiensConnection::listSites();
-        $collaborators = SapiensConnection::listCollaborator();
+        $collaborators = SapiensConnection::listCollaborators();
 
         $apps_servers = Server::listServersTypeApps();
         $db_servers = Server::listServersTypeDB();
@@ -27,7 +27,7 @@ class AppPages extends Controller
         $id = Operations::decryptID($id);
         $app = App::where('id', $id)->first();
         $sites = SapiensConnection::listSites();
-        $collaborators = SapiensConnection::listCollaborator();
+        $collaborators = SapiensConnection::listCollaborators();
 
         $apps_servers = Server::listServersTypeApps();
         $db_servers = Server::listServersTypeDB();

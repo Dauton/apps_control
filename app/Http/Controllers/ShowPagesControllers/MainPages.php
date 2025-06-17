@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ShowPagesControllers;
 use App\Http\Controllers\Controller;
+use App\Http\Services\SapiensConnection;
 use App\Models\App;
 use App\Models\Logs;
 use App\Models\Server;
@@ -44,8 +45,9 @@ class MainPages extends Controller
     public function adminPAGE()
     {
         $listUsers = User::listUsers();
+        $collaborators = SapiensConnection::listCollaborators();
 
-        return view('admin', compact('listUsers'));
+        return view('admin', compact('listUsers', 'collaborators'));
     }
 
     // LOGS PAGE

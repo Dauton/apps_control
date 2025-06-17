@@ -173,7 +173,7 @@
                 <td>Servidor</td>
                 <td>Porta</td>
                 <td>Serv. BD</td>
-                <td>Nome BD</td>
+                <td>BD</td>
                 <td>PHP</td>
                 <td>Laravel</td>
                 <td>Intranet</td>

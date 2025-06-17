@@ -5,3 +5,27 @@
 .select2-selection:hover {
     background: #000 !important;
 }
+.select2-selection__rendered {
+    color: #777 !important;
+}
+.select2-dropdown {
+    border: 1px solid #38384d !important;
+    border-top: 0 !important;
+    overflow: hidden !important;
+}
+.select2-search--dropdown {
+    background: var(--dark-secondary) !important;
+}
+.select2-results__option {
+    background: var(--dark-secondary) !important;
+    border: 0 !important;
+    border-top: 1px solid #38384d !important;
+    color: var(--text-color) !important;
+}
+.select2-results__option:hover {
+    background: #38384d !important;
+}
+.select2-search__field {
+    background: #000 !important;
+    color: var(--text-color);
+}

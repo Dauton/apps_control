@@ -12,10 +12,18 @@
         @csrf
 
         <div class="inpsel-container">
-            <label for="name">Nome<small> *</small></label>
+            <label for="name">Autor<small> *</small></label>
             <div>
-                <i class="fa-solid fa-address-card"></i>
-                <input type="text" name="name" id="name" placeholder="Nome completo" value="{{ old('name') }}">
+                <i class="fa-solid fa-user-tie"></i>
+                <select name="name" id="name">
+                    <option value="">Nome completo</option>
+                    @foreach ($collaborators as $show)
+                        @php
+                            $value = $show['usu_nomfun']
+                        @endphp
+                        <option value="{{ $value }}" {{ old('name') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                    @endforeach
+                </select>
             </div>
             @error('name')
             <p id="input-error">{{ $message }}</p>
