@@ -21,7 +21,7 @@ class App extends Model
         'internal_url_app',
         'external_url_app',
         'repository_app',
-        'author_app',
+        'developer_app',
         'created_by'
     ];
 
