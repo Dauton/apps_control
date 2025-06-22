@@ -15,6 +15,7 @@ class LogController extends Controller
             'result' => Str::upper(trim($result)),
             'description' => Str::upper(trim($description)),
             'by' => session('user.username') ?? null,
+            'origin_ip' => request()->ip(),
             'created_at' => now()
         ]);
     }

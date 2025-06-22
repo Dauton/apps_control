@@ -14,9 +14,10 @@ class Server extends Model
         'name_server',
         'ip_server',
         'os_server',
-        'os_version_server',
         'php_version_server',
-        'laravel_version_server',
+        'python_version_server',
+        'ndm_version_server',
+        'nodejs_version_server',
         'created_by'
     ];
 

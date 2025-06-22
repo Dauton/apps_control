@@ -119,38 +119,60 @@
         </div>
 
         <div class="inpsel-container">
-            <label for="url_intranet">URL intranet</label>
+            <label for="internal_url_app">Acesso interno</label>
             <div>
                 <i class="fa-solid fa-link"></i>
-                <input type="text" name="url_intranet" id="url_intranet" placeholder="URL do domínio Intranet" value="{{ $app->url_intranet }}">
+                <input type="text" name="internal_url_app" id="internal_url_app" placeholder="URL do acesso interno" value="{{ $app->internal_url_app }}">
             </div>
-            @error('url_intranet')
+            @error('internal_url_app')
             <p id="input-error">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="inpsel-container">
-            <label for="author_app">Autor<small> *</small></label>
+            <label for="external_url_app">Acesso externo</label>
+            <div>
+                <i class="fa-solid fa-link"></i>
+                <input type="text" name="external_url_app" id="external_url_app" placeholder="URL do acesso externo" value="{{ $app->external_url_app }}">
+            </div>
+            @error('external_url_app')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="inpsel-container">
+            <label for="repository_app">Repositório</label>
+            <div>
+                <i class="fa-solid fa-link"></i>
+                <input type="text" name="repository_app" id="repository_app" placeholder="URL do repositório" value="{{ $app->repository_app }}">
+            </div>
+            @error('repository_app')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="inpsel-container">
+            <label for="developer_app">Desenvolvedor<small> *</small></label>
             <div>
                 <i class="fa-solid fa-user-tie"></i>
-                <select name="author_app" id="author_app">
-                    <option value="{{ $app->author_app }}">{{ $app->author_app }}</option>
+                <select name="developer_app" id="developer_app">
+                    <option value="{{ $app->developer_app }}">{{ $app->developer_app }}</option>
                     @foreach ($collaborators as $show)
                         @php
                             $value = $show['usu_nomfun']
                         @endphp
-                        <option value="{{ $value }}" {{ old('author_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                        <option value="{{ $value }}" {{ old('developer_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
                     @endforeach
                 </select>
             </div>
-            @error('author_app')
+            @error('developer_app')
             <p id="input-error">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="buttons-container">
             <button type="submit">Submeter</button>
-            <a href="{{ route('create-app') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <a href="{{ route('servers') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
             <button type="button" id="btn-delete">Excluir</button>
         </div>
 

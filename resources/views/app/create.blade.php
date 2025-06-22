@@ -4,7 +4,7 @@
 <section class="content">
 
     <div class="content-header">
-        <h2>Cadastrar aplicação</h2>
+        <h2>Cadastrar aplicação no servidor <b>{{ $server->name_server }}</b></h2>
         <i class="fa-solid fa-minus" id="minimize-form1"></i>
     </div>
 
@@ -42,21 +42,9 @@
             @enderror
         </div>
 
-        <div class="inpsel-container">
-            <label for="server_app">Servidor<small> *</small></label>
-            <div>
-                <i class="fa-solid fa-server"></i>
-                <select name="server_app" id="server_app">
-                    <option value="">Servidor da aplicação</option>
-                    @foreach ($apps_servers as $server)
-                        <option value="{{ $server->ip_server }}" {{ old('server_app') == $server->ip_server ? 'selected' : '' }}>{{ $server->ip_server }}</option>
-                    @endforeach
-                </select>
-            </div>
-            @error('server_app')
-            <p id="input-error">{{ $message }}</p>
-            @enderror
-        </div>
+
+        <input type="hidden" name="server_app" id="server_app" placeholder="Servidor da aplicação" value="{{ $server->ip_server }}">
+
 
         <div class="inpsel-container">
             <label for="port_app">Porta</label>
@@ -119,38 +107,60 @@
         </div>
 
         <div class="inpsel-container">
-            <label for="url_intranet">URL intranet</label>
+            <label for="internal_url_app">Acesso interno</label>
             <div>
                 <i class="fa-solid fa-link"></i>
-                <input type="text" name="url_intranet" id="url_intranet" placeholder="URL do domínio Intranet" value="{{ old('url_intranet') }}">
+                <input type="text" name="internal_url_app" id="internal_url_app" placeholder="URL do acesso interno" value="{{ old('internal_url_app') }}">
             </div>
-            @error('url_intranet')
+            @error('internal_url_app')
             <p id="input-error">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="inpsel-container">
-            <label for="author_app">Autor<small> *</small></label>
+            <label for="external_url_app">Acesso externo</label>
+            <div>
+                <i class="fa-solid fa-link"></i>
+                <input type="text" name="external_url_app" id="external_url_app" placeholder="URL do acesso interno" value="{{ old('external_url_app') }}">
+            </div>
+            @error('external_url_app')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="inpsel-container">
+            <label for="repository_app">Reporitório</label>
+            <div>
+                <i class="fa-brands fa-github"></i>
+                <input type="text" name="repository_app" id="repository_app" placeholder="URL do acesso interno" value="{{ old('repository_app') }}">
+            </div>
+            @error('repository_app')
+            <p id="input-error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="inpsel-container">
+            <label for="developer_app">Desenvolvedor<small> *</small></label>
             <div>
                 <i class="fa-solid fa-user-tie"></i>
-                <select name="author_app" id="author_app">
-                    <option value="">Nome do autor da aplicação</option>
+                <select name="developer_app" id="developer_app">
+                    <option value="">Nome do desenvolvedor da aplicação</option>
                     @foreach ($collaborators as $show)
                         @php
                             $value = $show['usu_nomfun']
                         @endphp
-                        <option value="{{ $value }}" {{ old('author_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                        <option value="{{ $value }}" {{ old('developer_app') == $value ? 'selected' : '' }}>{{ $value }}</option>
                     @endforeach
                 </select>
             </div>
-            @error('author_app')
+            @error('developer_app')
             <p id="input-error">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="buttons-container">
             <button type="submit">Cadastrar</button>
-            <a href="{{ route('registrations') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <a href="{{ route('servers') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>
@@ -165,50 +175,65 @@
         <i class="fa-solid fa-minus" id="minimize-table"></i>
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <td>Site</td>
-                <td>Nome</td>
-                <td>Servidor</td>
-                <td>Porta</td>
-                <td>Serv. BD</td>
-                <td>BD</td>
-                <td>PHP</td>
-                <td>Laravel</td>
-                <td>Intranet</td>
-                <td>Autor</td>
-                <td>Cadas. por</td>
-                <td>Data cadas.</td>
-                <td>Editar</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($apps as $show)
-            <tr>
-                <td>{{ $show->site_app }}</td>
-                <td>{{ $show->name_app }}</td>
-                <td>{{ $show->server_app }}</td>
-                <td>{{ $show->port_app }}</td>
-                <td>{{ $show->server_db_app }}</td>
-                <td>{{ $show->name_db_app }}</td>
-                <td>{{ $show->php_version_app }}</td>
-                <td>{{ $show->laravel_version_app }}</td>
-                <td>
-                    @if ($show->url_intranet === 'N/T' || empty($show->url_intranet))
-                        {{ $show->url_intranet }}
-                    @else
-                        <a href="{{ $show->url_intranet }}" target="_blank"><i class="fa-solid fa-link"></i></a>
-                    @endif
-                </td>
-                <td>{{ $show->author_app }}</td>
-                <td>{{ $show->created_by }}</td>
-                <td>{{ \App\Http\Services\Operations::formatDate($show->created_at)}}</td>
-                <td><a href="{{ route('edit-app', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <article class="table-container1">
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Site</td>
+                    <td>Nome</td>
+                    <td>Servidor</td>
+                    <td>Porta</td>
+                    <td>Serv. BD</td>
+                    <td>BD</td>
+                    <td>PHP</td>
+                    <td>Laravel</td>
+                    <td>Acesso interno</td>
+                    <td>Acesso externo</td>
+                    <td>Repositório</td>
+                    <td>Dev</td>
+                    <td>Editar</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($apps as $show)
+                <tr>
+                    <td>{{ $show->site_app }}</td>
+                    <td>{{ $show->name_app }}</td>
+                    <td>{{ $show->server_app }}</td>
+                    <td>{{ $show->port_app }}</td>
+                    <td>{{ $show->server_db_app }}</td>
+                    <td>{{ $show->name_db_app }}</td>
+                    <td>{{ $show->php_version_app }}</td>
+                    <td>{{ $show->laravel_version_app }}</td>
+                    <td>
+                        @if ($show->internal_url_app === 'N/T' || empty($show->internal_url_app))
+                            {{ $show->internal_url_app }}
+                        @else
+                            <a href="{{ $show->internal_url_app }}" target="_blank"><i class="fa-solid fa-link"></i></a>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($show->external_url_app === 'N/T' || empty($show->external_url_app))
+                            {{ $show->external_url_app }}
+                        @else
+                            <a href="{{ $show->external_url_app }}" target="_blank"><i class="fa-solid fa-link"></i></a>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($show->repository_app === 'N/T' || empty($show->repository_app))
+                            {{ $show->repository_app }}
+                        @else
+                            <a href="{{ $show->repository_app }}" target="_blank"><i class="fa-solid fa-link"></i></a>
+                        @endif
+                    </td>
+                    <td>{{ $show->developer_app }}</td>
+                    <td><a href="{{ route('edit-app', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </article>
 </section>
 
 @endsection

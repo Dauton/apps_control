@@ -67,7 +67,7 @@
 
         <div class="buttons-container">
             <button type="submit">Cadastrar</button>
-            <a href="{{ route('homepage') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <a href="{{ route('servers') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>
@@ -82,30 +82,34 @@
         <i class="fa-solid fa-minus" id="minimize-table"></i>
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <td>Nome</td>
-                <td>Usuário</td>
-                <td>Último acesso</td>
-                <td>Cadastrado por</td>
-                <td>Cadastrado em</td>
-                <td>Editar</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($listUsers as $show)
+    <article class="table-container1">
+
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ $show->name }}</td>
-                    <td>{{ $show->username }}</td>
-                    <td>{{ $show->last_login }}</td>
-                    <td>{{ $show->created_by }}</td>
-                    <td>{{ \App\Http\Services\Operations::formatDate($show->created_at) }}</td>
-                    <td><a href="{{ route('edit-user', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
+                    <td>Nome</td>
+                    <td>Usuário</td>
+                    <td>Último acesso</td>
+                    <td>Cadastrado por</td>
+                    <td>Cadastrado em</td>
+                    <td>Editar</td>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($listUsers as $show)
+                    <tr>
+                        <td>{{ $show->name }}</td>
+                        <td>{{ $show->username }}</td>
+                        <td>{{ $show->last_login }}</td>
+                        <td>{{ $show->created_by }}</td>
+                        <td>{{ \App\Http\Services\Operations::formatDate($show->created_at) }}</td>
+                        <td><a href="{{ route('edit-user', Crypt::encrypt($show->id)) }} }}"><i class="fa-solid fa-square-pen"></i></a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        
+    </article>
 </section>
 
 @endsection

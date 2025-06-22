@@ -45,7 +45,7 @@ class AuthController extends Controller
 
         LogController::createLog('Login', 'Sucesso', 'Login efetuado');
 
-        return redirect()->route('homepage')->with('alertSuccess', 'Logado com sucesso.');
+        return redirect()->route('servers')->with('alertSuccess', 'Logado com sucesso.');
 
     }
 

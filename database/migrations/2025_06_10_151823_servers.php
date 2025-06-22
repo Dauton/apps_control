@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('name_server', 150);
             $table->string('ip_server', 45);
             $table->string('os_server', 45);
-            $table->string('os_version_server', 45);
             $table->string('php_version_server', 45)->nullable();
-            $table->string('laravel_version_server', 45)->nullable();
+            $table->string('python_version_server', 45)->nullable();
+            $table->string('npm_version_server', 45)->nullable();
+            $table->string('nodejs_version_server', 45)->nullable();
             $table->string('created_by', 150);
             $table->timestamps();
             $table->softDeletes();

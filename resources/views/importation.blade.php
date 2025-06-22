@@ -30,7 +30,7 @@
 
         <div class="buttons-container">
             <button type="submit">Importar</button>
-            <a href="{{ route('homepage') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <a href="{{ route('servers') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>
@@ -66,7 +66,7 @@
 
         <div class="buttons-container">
             <button type="submit" form="import-server">Importar</button>
-            <a href="{{ route('homepage') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
+            <a href="{{ route('servers') }}"><button type="button" id="btn-cancel">Cancelar</button></a>
         </div>
 
     </form>

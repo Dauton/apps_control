@@ -18,28 +18,20 @@ class App extends Model
         'name_db_app',
         'php_version_app',
         'laravel_version_app',
-        'url_intranet',
+        'internal_url_app',
+        'external_url_app',
+        'repository_app',
         'author_app',
         'created_by'
     ];
 
-    public static function listApps()
+    public static function listServerApps($ip_server)
+    {
+        return self::where('server_app', $ip_server)->get();
+    }
+
+    public static function listAllApps()
     {
         return self::get();
-    }
-
-    public static function listLast10Apps()
-    {
-        return self::limit(10)->get();
-    }
-
-    public static function lastApp()
-    {
-        return self::select('name_app', 'created_at')->orderBy('id', 'DESC')->first();
-    }
-
-    public static function countApps()
-    {
-        return self::count();
     }
 }

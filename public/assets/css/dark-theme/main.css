@@ -4,6 +4,7 @@
 @import url(forms.css);
 @import url(select2.css);
 @import url(buttons.css);
+@import url(alerts.css);
 
 :root {
     --dark-principal: #000;

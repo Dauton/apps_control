@@ -9,7 +9,7 @@ class User extends Model
     protected $fillable = [
         'name',
         'username',
-        'passsword',
+        'password',
         'theme_preference',
         'last_login',
     ];

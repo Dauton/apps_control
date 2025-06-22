@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('result');
             $table->string('description');
             $table->string('by')->nullable();
+            $table->string('origin_ip');
             $table->timestamps();
 
         });

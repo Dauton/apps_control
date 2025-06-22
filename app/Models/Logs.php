@@ -10,7 +10,8 @@ class Logs extends Model
         'type',
         'result',
         'description',
-        'by'
+        'by',
+        'origin_ip'
     ];
 
     public static function listLogs()

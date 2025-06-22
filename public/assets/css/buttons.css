@@ -8,11 +8,11 @@
 
 .buttons-container a {
     display: flex;
-    flex-basis: 0;
     margin: 0;
 }
 
 button {
+    width: fit-content;
     min-width: 80px;
     padding: 5px 10px;
     display: flex;

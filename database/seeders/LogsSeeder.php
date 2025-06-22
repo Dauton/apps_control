@@ -16,7 +16,8 @@ class LogsSeeder extends Seeder
         $type = 'Login';
         $result = 'Sucesso';
         $description = 'Logado com sucesso.';
-        $by = session("user.username");
+        $by = 'SEEDER'; // session('user.username')
+        $origin_ip = request()->ip();
         $created_at = now();
 
         Logs::create([
@@ -24,6 +25,7 @@ class LogsSeeder extends Seeder
             'description' => Str::upper(trim($description)),
             'result' => Str::upper(trim($result)),
             'by' => Str::upper(trim($by)),
+            'origin_ip' => trim($origin_ip),
             'created_at' => $created_at
         ]);
     }

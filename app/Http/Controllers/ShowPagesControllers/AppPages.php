@@ -10,16 +10,21 @@ use App\Models\Server;
 
 class AppPages extends Controller
 {
-    public function createAppPAGE()
+    public function createAppPAGE($id)
     {
-        $apps = App::listApps();
+
+        $id = Operations::decryptID($id);
+
+        $server = Server::select('ip_server', 'name_server')->where('id', $id)->first();
+
+        $apps = App::listAllApps();
         $sites = SapiensConnection::listSites();
         $collaborators = SapiensConnection::listCollaborators();
 
         $apps_servers = Server::listServersTypeApps();
         $db_servers = Server::listServersTypeDB();
 
-        return view('app.create', compact('apps', 'sites', 'collaborators', 'apps_servers', 'db_servers'));
+        return view('app.create', compact('server', 'apps', 'sites', 'collaborators', 'apps_servers', 'db_servers'));
     }
 
     public function editAppPAGE($id)

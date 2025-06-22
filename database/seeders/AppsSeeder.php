@@ -22,12 +22,17 @@ class AppsSeeder extends Seeder
         $name_db_app = '4321';
         $php_version_app = '8.4';
         $laravel_version_app = '12';
-        $url_intranet = 'https://intranet.app.com.br'; // if null, url_intranet = 'NÃO'
-        $author_app = 'DEVELOPER';
+        $internal_url_app = 'https://10.10.10.100:4321/';
+        $external_url_app = 'https://intranet.app.com.br';
+        $repository_app = 'https://github.com/developer/app';
+        $developer_app = 'DEVELOPER';
         $created_by = 'SEEDER'; // session('user.username');
         $created_at = now();
 
-        $url_intranet = Operations::ifNull($url_intranet);
+        // if = null; = N/T
+        $internal_url_app = Operations::ifNull($internal_url_app);
+        $external_url_app = Operations::ifNull($external_url_app);
+        $repository_app = Operations::ifNull($repository_app);
 
         App::create([
             'site_app' => trim(Str::upper($site_app)),
@@ -38,8 +43,10 @@ class AppsSeeder extends Seeder
             'name_db_app' => trim($name_db_app),
             'php_version_app' => trim($php_version_app),
             'laravel_version_app' => trim($laravel_version_app),
-            'url_intranet' => trim($url_intranet),
-            'author_app' => trim(Str::upper($author_app)),
+            'internal_url_app' => trim($internal_url_app),
+            'external_url_app' => trim($external_url_app),
+            'repository_app' => trim($repository_app),
+            'developer_app' => trim(Str::upper($developer_app)),
             'created_by' => trim(Str::upper($created_by)),
             'created_at' => $created_at
         ]);

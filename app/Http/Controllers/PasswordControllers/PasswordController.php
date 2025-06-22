@@ -18,13 +18,13 @@ class PasswordController extends Controller
 
         User::where('id', $id)->update(
             [
-                'password' => password_hash($password, PASSWORD_ARGON2ID)
+                'password' => password_hash(trim($password), PASSWORD_ARGON2ID),
             ]
         );
 
         if($id == session('user.id')) {
             LogController::createLog('Senha', 'Sucesso', 'Alterou a própria senha');
-            return redirect()->route('homepage')->with('alertSuccess', 'Senha alterada com sucesso.');
+            return redirect()->route('servers')->with('alertSuccess', 'Senha alterada com sucesso.');
         }
 
         $username = User::select('username')->where('id', $id)->first();

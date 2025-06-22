@@ -16,15 +16,13 @@ class Validations extends Controller
                 'type_server' => ['required'],
                 'name_server' => ['required'],
                 'ip_server' => ['required', 'ip', Rule::unique('servers', 'ip_server')->whereNull('deleted_at')],
-                'os_server' => ['required'],
-                'os_version_server' => ['required'],
+                'os_server' => ['required']
             ],
             [
                 // REQUIRED
                 'type_server.required' => 'O tipo do servidor deve ser informado.',
                 'name_server.required' => 'Um nome deve ser dado ao servidor.',
                 'os_server.required' => 'O sistema operacional do servidor deve ser informado.',
-                'os_version_server.required' => 'A versão do sistema operacional deve ser informado.',
                 'ip_server.required' => 'O IP Address do servidor deve ser informado.',
 
                 // DE MAIS
@@ -41,7 +39,6 @@ class Validations extends Controller
                 'type_server' => ['required'],
                 'name_server' => ['required'],
                 'ip_server' => ['required', 'ip'],
-                'os_server' => ['required'],
                 'os_version_server' => ['required']
             ],
             [
@@ -49,7 +46,6 @@ class Validations extends Controller
                 'name_server.required' => 'Um nome deve ser dado ao servidor.',
                 'ip_server.required' => 'O IP Address do servidor deve ser informado.',
                 'os_server.required' => 'O sistema operacional do servidor deve ser informado.',
-                'os_version_server.required' => 'A versão do sistema operacional deve ser informado.',
                 
                 'ip_server.ip' => 'O IP Address informado não é válido.',
             ]

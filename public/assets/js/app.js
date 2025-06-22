@@ -64,7 +64,7 @@ $(document).ready(function () {
         $('.content .form2').toggle();
     });
     $('#minimize-table').click(function() {
-        $('.content #DataTables_Table_0_wrapper').toggle();
+        $('.content .table-container1').toggle();
     });
 
 

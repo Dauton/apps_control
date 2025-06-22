@@ -1,0 +1,5 @@
+.confirmation-box {
+    background: var(--dark-secondary);
+    border: 1px solid #38384d;
+    color: var(--text-color);
+}

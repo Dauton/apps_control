@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthControllers\AuthController;
+use App\Http\Controllers\ShowPagesControllers\ManagementPages;
 use App\Http\Controllers\ShowPagesControllers\PassowrdPages;
 use App\Http\Controllers\ShowPagesControllers\MainPages;
 use App\Http\Controllers\AppControllers\AppController;
@@ -31,12 +32,14 @@ Route::middleware([IsLoggedIn::class])->group(function() {
 Route::middleware([NotLoggedIn::class])->group(function() {
 
     // SHOW  MAIN PAGES
-
-        Route::get('/homepage', [MainPages::class, 'homePAGE'])->name('homepage');
-        Route::get('/registrations', [MainPages::class, 'registrationsPAGE'])->name('registrations');
+        Route::get('/servers', [MainPages::class, 'serversPAGE'])->name('servers');
         Route::get('/importation', [MainPages::class, 'importationPAGE'])->name('importation');
         Route::get('/admin', [MainPages::class, 'adminPAGE'])->name('admin');
         Route::get('/logs', [MainPages::class, 'logsPAGE'])->name('logs');
+
+
+    // MANAGEMENTS PAGES
+        Route::get('/managements/server/{id}', [ManagementPages::class, 'managementServerPAGE'])->name('management-server');
 
 
     // SHOW CRUDS PAGES
@@ -48,12 +51,11 @@ Route::middleware([NotLoggedIn::class])->group(function() {
         Route::get('/user/edit/{id}', [UserPages::class, 'editUserPAGE'])->name('edit-user');
 
         // APP
-        Route::get('/app/create', [AppPages::class, 'createAppPAGE'])->name('create-app');
+        Route::get('/app/create/{id}', [AppPages::class, 'createAppPAGE'])->name('create-app');
         Route::get('/app/edit/{id}', [AppPages::class, 'editAppPAGE'])->name('edit-app');
 
         // SERVER
         Route::get('/server/create', [ServerPages::class, 'createServerPAGE'])->name('create-server');
-        Route::get('/server/edit/{id}', [ServerPages::class, 'editServerPAGE'])->name('edit-server');
 
 
     // EXECUTES

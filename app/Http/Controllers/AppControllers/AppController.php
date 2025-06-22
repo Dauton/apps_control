@@ -7,6 +7,7 @@ use App\Http\Controllers\LogControllers\LogController;
 use App\Http\Services\Operations;
 use App\Models\App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 
 class AppController extends Controller
@@ -24,8 +25,10 @@ class AppController extends Controller
         $name_db_app = $request->input('name_db_app');
         $php_version_app = $request->input('php_version_app');
         $laravel_version_app = $request->input('laravel_version_app');
-        $url_intranet = $request->input('url_intranet');
-        $author_app = $request->input('author_app'); // Obrigatório
+        $internal_url_app = $request->input('internal_url_app');
+        $external_url_app = $request->input('external_url_app');
+        $repository_app = $request->input('repository_app');
+        $developer_app = $request->input('developer_app'); // Obrigatório
         $created_by = session('user.name');
         $created_at = now();
 
@@ -34,7 +37,9 @@ class AppController extends Controller
         $name_db_app = Operations::ifNull($name_db_app);
         $php_version_app = Operations::ifNull($php_version_app);
         $laravel_version_app = Operations::ifNull($laravel_version_app);
-        $url_intranet = Operations::ifNull($url_intranet);
+        $internal_url_app = Operations::ifNull($internal_url_app);
+        $external_url_app = Operations::ifNull($external_url_app);
+        $repository_app = Operations::ifNull($repository_app);
 
         App::create([
             'site_app' => trim(Str::upper($site_app)),
@@ -45,15 +50,17 @@ class AppController extends Controller
             'name_db_app' => trim($name_db_app),
             'php_version_app' => trim($php_version_app),
             'laravel_version_app' => trim($laravel_version_app),
-            'url_intranet' => trim($url_intranet),
-            'author_app' => trim(Str::upper($author_app)),
+            'internal_url_app' => trim($internal_url_app),
+            'external_url_app' => trim($external_url_app),
+            'repository_app' => trim($repository_app),
+            'developer_app' => trim(Str::upper($developer_app)),
             'created_by' => $created_by,
             'created_at' => $created_at
         ]);
 
         LogController::createLog('Cadastro', 'Sucesso', "Aplicação '$name_app' cadastrada");
 
-        return redirect()->route('create-app')->with('alertSuccess', 'Aplicação cadastrada com sucesso.');
+        return redirect()->back()->with('alertSuccess', 'Aplicação cadastrarda com sucesso.');
     }
 
     public function editApp(Request $request, $id)
@@ -69,12 +76,20 @@ class AppController extends Controller
         $name_db_app = $request->input('name_db_app');
         $php_version_app = $request->input('php_version_app');
         $laravel_version_app = $request->input('laravel_version_app');
-        $url_intranet = $request->input('url_intranet'); // if null ou vazio, intranet_app = 'N/T'
-        $author_app = $request->input('author_app');
+        $internal_url_app = $request->input('internal_url_app');
+        $external_url_app = $request->input('external_url_app');
+        $repository_app = $request->input('repository_app');
+        $developer_app = $request->input('developer_app');
         $updated_at = now();
 
-        // if null ou vazio, intranet_app = 'N/T'
-        Operations::ifNull($url_intranet);
+         // if valor = null ou vazio, valor = 'N/T'
+        $server_db_app = Operations::ifNull($server_db_app);
+        $name_db_app = Operations::ifNull($name_db_app);
+        $php_version_app = Operations::ifNull($php_version_app);
+        $laravel_version_app = Operations::ifNull($laravel_version_app);
+        $internal_url_app = Operations::ifNull($internal_url_app);
+        $external_url_app = Operations::ifNull($external_url_app);
+        $repository_app = Operations::ifNull($repository_app);
 
         App::where('id', $id)->update([
             'site_app' => trim(Str::upper($site_app)),
@@ -85,14 +100,16 @@ class AppController extends Controller
             'name_db_app' => trim($name_db_app),
             'php_version_app' => trim($php_version_app),
             'laravel_version_app' => trim($laravel_version_app),
-            'url_intranet' => trim($url_intranet),
-            'author_app' => trim(Str::upper($author_app)),
+            'internal_url_app' => trim($internal_url_app),
+            'external_url_app' => trim($external_url_app),
+            'repository_app' => trim($repository_app),
+            'developer_app' => trim(Str::upper($developer_app)),
             'updated_at' => $updated_at
         ]);
 
         LogController::createLog('Edição', 'Sucesso', "Aplicação '$name_app' editada");
 
-        return redirect()->route('create-app')->with('alertSuccess', 'Aplicação editada com sucesso.');
+        return redirect()->back()->with('alertSuccess', 'Aplicação editada com sucesso.');
 
     }
 

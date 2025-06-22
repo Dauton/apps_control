@@ -1,3 +1,7 @@
+.table-container1 .buttons-container {
+    justify-content: right !important;
+}
+
 table {
     background: #fff;
 }

@@ -108,6 +108,7 @@
     color: #707070;
     font-size: 13px;
     cursor: pointer;
+    border-left: 0;
     border: 1px solid #aaa;
 }
 #active-menu:hover {
